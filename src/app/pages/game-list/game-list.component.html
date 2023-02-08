@@ -1,0 +1,17 @@
+<div class="games">
+  <game-game
+    *ngFor="let boardGame of boardGames"
+    [boardGame]="boardGame"
+    (onRemove)="removeBoardGame(boardGame._id)"
+    class="game"
+  ></game-game>
+  <div class="modalBackground" *ngIf="showModal">
+    <div class="modalContainer">
+      <div class="bodyModal">ELIMINADO CON ÉXITO!</div>
+      <div class="footerModal">
+        <button (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="navigateToFormGames()">Añadir Juego</button>
+</div>

@@ -1,0 +1,23 @@
+<form 
+    *ngIf="boardGamesForm"
+    (submit)="createNewBoardGame()"
+    [formGroup]="boardGamesForm"
+>
+    <label for="title">Título</label>
+    <input type="text" id="title" formControlName = 'title'>
+    <label for="publisher">Editorial</label>
+    <input type="text" id="publisher">
+    <label for="year">Año Lanzamiento</label>
+    <input type="text" id="year">
+    <label for="category">Categoría</label>
+    <input type="text" id="category">
+    <label for="players">Nº Jugadores</label>
+    <input type="text" id="players">
+    <label for="weight">Dificultad</label>
+    <input type="text" id="weight">
+    <label for="playingTime">Duración Partida</label>
+    <input type="text" id="playingTime">
+    <label for="isForAdults">Es para adultos</label>
+    <input type="checkbox" id="isForAdults">
+    <button type="submit">Enviar</button>
+</form>

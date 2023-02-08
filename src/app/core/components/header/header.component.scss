@@ -1,0 +1,18 @@
+@import "../../../../fonts/core";
+
+.header {
+  display: flex;
+  position: sticky;
+  font-family: "Dinosaur";
+  a{
+    text-decoration: none;
+  }
+  ul{
+    list-style: none;
+  }
+  &__active{
+    color: red;
+  }
+}
+
+

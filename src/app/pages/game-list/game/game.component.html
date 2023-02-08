@@ -1,0 +1,9 @@
+<div>
+  <p>{{ boardGame?.title }}</p>
+  <img src="{{ boardGame?.picture }}" alt="BoardGame Image" />
+  <p>Editorial: {{ boardGame?.publisher }}</p>
+  <p>Año lanzamiento: {{ boardGame?.year }}</p>
+  <button (click)="navigateToDetail()">Ver detalles</button>
+  <button (click)="editBoardGame()">Editar</button>
+  <button (click)="removeBoardGame()">Eliminar</button>
+</div>

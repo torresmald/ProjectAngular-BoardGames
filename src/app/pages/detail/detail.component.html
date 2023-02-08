@@ -1,0 +1,25 @@
+<div *ngFor="let boardGame of boardGame">
+  <p>Nombre: {{ boardGame.title }}</p>
+  <img [src]="boardGame.picture" alt="BoardGame Image">
+  <div>
+    <ul>
+      <p>Categorías:</p>
+      <li *ngFor="let category of boardGame.category">{{category}}</li>
+    </ul>
+  </div>
+  <div>
+    <ul >
+      <p>Diseñadores:</p> 
+      <li *ngFor="let designer of boardGame.designer">{{designer}}</li>
+    </ul>
+  </div>
+  <p>Editorial: {{boardGame.publisher}}</p>
+  <p>Año Lanzamiento: {{boardGame.year}}</p>
+  <p>Nº Jugadores: {{boardGame.players}}</p>
+  <p>Duración partida: {{boardGame.playingTime}}</p>
+  <p>Dificultad: {{boardGame.weight}}</p>
+  <p>¿Es para niños? {{boardGame.isForChilds}}</p>
+</div>
+
+<button (click)="backToList()">Volver al Listado</button>
+
