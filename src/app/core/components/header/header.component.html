@@ -1,25 +1,65 @@
 <header class="header">
+  <div class="header__box">
+    <img src="https://res.cloudinary.com/dpyvlsksj/image/upload/v1676237655/bgg_apsl5x.jpg" alt="Logo Bgg" class="header__box_logo">
+  </div>
   <nav>
-    <ul>
+    <ul class="header__list">
       <li>
-        <a 
-        (click) = 'selectedRoute()'
-        [ngClass]="{'header__active': currentRoute === '/home'}"
-        [routerLink]="['home']">Home</a>
-      </li>
-      <li>
-        <a 
-        (click) = 'selectedRoute()'
-        [ngClass]="{'header__active': currentRoute === '/list'}"
-        [routerLink]="['list']">Listado Juegos</a>
+        <a
+          class="header__list_item"
+          (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/home' }"
+          [routerLink]="['home']"
+          >Home</a
+        >
       </li>
       <li>
         <a
-        (click) = 'selectedRoute()'
-        [ngClass]="{'header__active': currentRoute === '/contact'}"
-        [routerLink]="['contact']">Contacto</a>
+          class="header__list_item"
+          (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/list' }"
+          [routerLink]="['list']"
+          >Listado Juegos</a
+        >
+      </li>
+      <li>
+        <a
+          class="header__list_item"
+          (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/contact' }"
+          [routerLink]="['contact']"
+          >Contacto</a
+        >
+      </li>
+      <li>
+        <a
+          class="header__list_item"
+          (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/register' }"
+          [routerLink]="['register']"
+          >Registro</a
+        >
+      </li>
+      <li>
+        <a
+          class="header__list_item"
+          *ngIf="!isLogged"
+          (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/login' }"
+          [routerLink]="['login']"
+          >Login</a
+        >
+      </li>
+      <li>
+        <a
+          class="header__list_item"
+          *ngIf="isLogged"
+          (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/account' }"
+          [routerLink]="['account']"
+          >Account</a
+        >
       </li>
     </ul>
   </nav>
 </header>
-

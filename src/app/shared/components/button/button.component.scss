@@ -1,0 +1,62 @@
+@import '../../../../styles/styles.scss';
+.buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.send {
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: $color-primary;
+    padding: 10px 30px;
+    border: 2px solid $color-primary;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+.send:hover {
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: $color-primary;
+    border: solid 2px $color-primary;
+  }
+.reset {
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: #c61b1b;
+    padding: 10px 30px;
+    border: 2px solid #c61b1b;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+.reset:hover{
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: #c61b1b;
+    border: solid 2px #c61b1b;
+  }
+
+@media screen and (min-width: 762px){
+  .buttons{
+    flex-direction: row;
+  }
+}

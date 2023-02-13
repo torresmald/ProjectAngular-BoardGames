@@ -1,18 +1,39 @@
-@import "../../../../fonts/core";
+@import "../../../../styles/styles.scss";
 
+:host{
+  position: relative;
+}
 .header {
-  display: flex;
-  position: sticky;
-  font-family: "Dinosaur";
-  a{
-    text-decoration: none;
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #f46b45, #eaba77);
+  height: 50px;
+  padding: 1em 2em 1em 1em;
+  &__box {
+    width: 10%;
+    &_logo {
+      height: 50px;
+    }
   }
-  ul{
+  &__list {
     list-style: none;
+    &_item {
+      text-decoration: none;
+      color: $color-primary;
+      font-family: 'Dinosaur';
+    }
   }
-  &__active{
-    color: red;
+  &__active {
+    color: $color-tertiary;
   }
 }
 
-
+@media screen and (min-width: 762px) {
+  .header__list{
+    display: flex;
+    &_item{
+      padding: 10px;
+    }
+  }
+}

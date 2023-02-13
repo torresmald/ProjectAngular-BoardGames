@@ -1,0 +1,115 @@
+@import '../../../../styles/styles.scss';
+:host{
+    display: flex;
+    justify-content: center;
+}
+
+.game{
+    width: 250px;
+    color: $color-primary;
+    background: linear-gradient(to bottom, #eb876b, #eaba77);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20%;
+    border: 2px solid $color-primary;
+    box-shadow: 3px 15px 15px 3px lightgrey;
+    margin-bottom: 24px;
+    font-family: 'Dinosaur';
+    font-size: 12px;
+    cursor: pointer;
+    &__image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 20%;
+    }
+    &__image:hover{
+        transform: scale(1.1);
+    }
+    &__data{
+        &_publisher, &_year{
+            display: flex;
+            gap: 3px;
+        }
+        &_publisher :last-child{
+            color: #0398AC;
+        }
+        &_year :last-child{
+            color: #0398AC;
+        }
+    }
+    &__button{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+.send {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 10px;
+    color: #fff;
+    background-color: $color-primary;
+    padding: 10px 30px;
+    border: 2px solid $color-primary;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+.send:hover {
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: $color-primary;
+    border: solid 2px $color-primary;
+  }
+.delete {
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 10px;
+    color: #fff;
+    background-color: #c61b1b;
+    padding: 10px 30px;
+    border: 2px solid #c61b1b;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+.delete:hover{
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: #c61b1b;
+    border: solid 2px #c61b1b;
+  }
+
+  @media screen and (min-width: 762px) {
+    .game{
+        font-size: 18px;
+        text-align: center;
+        width: 380px;
+        &__image{
+            height: 200px;
+            width: 200px;
+        }
+        &__button{
+            flex-direction: row;
+        }
+    }
+  }

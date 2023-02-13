@@ -1,0 +1,19 @@
+@import '../../../styles/styles.scss';
+
+.form{
+    border-color: #eaba77;
+    border-style: solid;
+    font-family: 'Dinosaur';
+    color: $color-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    &__email, &__password{
+        display: flex;
+        gap: 10px;
+    }
+    p{
+        color: $color-tertiary;
+    }
+}

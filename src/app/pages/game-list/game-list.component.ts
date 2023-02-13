@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 import { BoardGamesService } from 'src/app/core/services/boardGames/board-games.service';
-import { BoardGames } from 'src/app/core/services/boardGames/boardGames.model';
+import { BoardGames, PagedBoardGames } from '../../core/models/boardGames/transformed/boardGames.model';
+
 
 @Component({
   selector: 'games-game-list',
@@ -10,38 +11,46 @@ import { BoardGames } from 'src/app/core/services/boardGames/boardGames.model';
   styleUrls: ['./game-list.component.scss'],
 })
 export class GameListComponent {
-  public boardGames: BoardGames[] = [];
-  public showModal: boolean = false;
+  public boardGames$?: Observable<BoardGames[]>;
+  // public boardGames$?: BoardGames[];
+  public nextPage?: string | null;
+  public previousPage?: string | null;
+  public boardGameTitle : string = '';
+  public sortByYear?: "asc" | "desc";
   constructor(
     private boardGamesService: BoardGamesService,
     private router: Router
   ) {}
 
   public ngOnInit(): void {
-    this.boardGamesService.getBoardGames().subscribe((boardGamesApi) => {
-      this.boardGames = boardGamesApi;
-    });
+    this.boardGamesService.getBoardGames().pipe(
+      map((boardGame) => {
+        boardGame.map((game)=> {
+          console.log(game);
+          
+        }) 
+      })
+    )
+    this.boardGames$ = this.boardGamesService.getBoardGames();
+    // this.boardGames$ = this.boardGamesService.getBoardGamesPaged();
   }
   public navigateToFormGames() {
     this.router.navigate(['formGames']);
   }
   public removeBoardGame(id?: string) {
-    this.showModal = true;
-    if (!id) {
-      return;
-    }
-    this.boardGamesService
-      .deleteBoardGame(id)
-      .pipe(
-        switchMap((boardGame) => {
-          return this.boardGamesService.getBoardGames();
-        })
-      )
-      .subscribe((boardGamesApi) => {
-        this.boardGames = boardGamesApi;
-      });
+    if (!id) {return}
+    this.boardGames$ = this.boardGamesService.deleteBoardGame(id).pipe(
+      switchMap((boardGame) => {
+        return this.boardGamesService.getBoardGames();
+      })
+    )
   }
-  public closeModal(){
-    this.showModal = false;
+  
+
+  public getNextPage(){
+
+  }
+  public getPreviousPage(){
+    
   }
 }

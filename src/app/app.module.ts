@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { FormBoardGameComponent } from './pages/form-board-game/form-board-game.component';
 
 @NgModule({
   declarations: [

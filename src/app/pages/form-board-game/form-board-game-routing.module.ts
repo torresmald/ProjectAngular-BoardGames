@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExitGuardGuard } from 'src/app/core/guards/canDeactivate/exit-guard.guard';
 import { FormBoardGameComponent } from './form-board-game.component';
 
 const routes: Routes = [{
   path: '',
-  component: FormBoardGameComponent
+  component: FormBoardGameComponent,
+  canDeactivate: [ExitGuardGuard]
 }];
 
 @NgModule({

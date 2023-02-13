@@ -1,0 +1,8 @@
+<div class="modalBackground" *ngIf="shouldShowModal">
+    <div class="modalContainer">
+      <div class="bodyModal">{{modalMessage}}</div>
+      <div class="footerModal">
+        <button (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>

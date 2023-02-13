@@ -1,0 +1,84 @@
+<form
+  *ngIf="userForm"
+  [formGroup]="userForm"
+  (submit)="register()"
+>
+  <fieldset class="form">
+    <legend>Registro de Usuario</legend>
+    <div class="form__email">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" />
+      <p
+        *ngIf="userForm.get('email')?.dirty
+      && userForm.get('email')?.errors?.['required']
+      "
+      >
+        El email es requerido
+      </p>
+      <p
+        *ngIf="userForm.get('email')?.dirty
+      && userForm.get('email')?.errors?.['email']
+      "
+      >
+        El email no tiene un formato válido
+      </p>
+    </div>
+    <div class="form__password">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" />
+      <p
+        *ngIf="userForm.get('password')?.dirty
+      && userForm.get('password')?.errors?.['required']
+      "
+      >
+        El password es requerido
+      </p>
+      <p
+        *ngIf="userForm.get('password')?.dirty
+      && userForm.get('password')?.errors?.['minlength']
+      "
+      >
+        La contraseña debe contener al menos 6 carácteres.
+      </p>
+    </div>
+    <div class="form__nickname">
+      <label for="nickname">Nickname</label>
+      <input type="text" id="nickname" formControlName="nickname" />
+      <p
+        *ngIf="userForm.get('nickname')?.dirty
+      && userForm.get('nickname')?.errors?.['required']
+      "
+      >
+        El nickname es requerido
+      </p>
+    </div>
+    <div class="form__age">
+      <label for="age">Edad</label>
+      <input type="text" id="age" formControlName="age" />
+      <p
+        *ngIf="userForm.get('age')?.dirty
+      && userForm.get('age')?.errors?.['min']
+      "
+      >
+        La contraseña debe ser mayor de 10 años.
+      </p>
+      <p
+        *ngIf="userForm.get('age')?.dirty
+      && userForm.get('age')?.errors?.['max']
+      "
+      >
+        La contraseña debe ser menor de 90 años.
+      </p>
+      <p
+        *ngIf="userForm.get('age')?.dirty
+      && userForm.get('age')?.errors?.['required']
+      "
+      >
+        La edad es requerida
+      </p>
+    </div>
+    <games-button></games-button>
+  </fieldset>
+</form>
+
+<!-- <button type="submit">Registro</button> -->

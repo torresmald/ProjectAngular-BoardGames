@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/canActivate/auth.guard';
+import { ExitGuardGuard } from './core/guards/canDeactivate/exit-guard.guard';
 
 const routes: Routes = [
   {
@@ -20,12 +22,26 @@ const routes: Routes = [
     loadChildren: () => import ('./pages/detail/detail.module').then(m => m.DetailModule)
   },
   {
+    path: 'login',
+    loadChildren: () => import ('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import ('./pages/register/register.module').then(m => m.RegisterModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import ('./pages/account/account.module').then(m => m.AccountModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'contact',
     loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule)
   },
   {
     path: 'formGames',
-    loadChildren: () => import('./pages/form-board-game/form-board-game.module').then(m => m.FormBoardGameModule)
+    loadChildren: () => import('./pages/form-board-game/form-board-game.module').then(m => m.FormBoardGameModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

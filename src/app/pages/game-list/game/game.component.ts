@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiBoardGames } from 'src/app/core/services/boardGames/api/api-boardGames.model';
+import { BoardGames } from '../../../core/models/boardGames/transformed/boardGames.model';
 
 @Component({
   selector: 'game-game',
@@ -8,7 +8,7 @@ import { ApiBoardGames } from 'src/app/core/services/boardGames/api/api-boardGam
   styleUrls: ['./game.component.scss'],
 })
 export class GameComponent {
-  @Input() public boardGame?: ApiBoardGames;
+  @Input() public boardGame?: BoardGames;
   @Output() public onRemove: EventEmitter<void> = new EventEmitter<void>();
   constructor(private router: Router) {}
 
@@ -21,7 +21,7 @@ export class GameComponent {
     this.router.navigate(['formGames'], {
       queryParams: {
         id: this.boardGame?.id,
-      },
+      }, 
     });
   }
   public removeBoardGame() {

@@ -1,0 +1,28 @@
+<form *ngIf="userForm" [formGroup]="userForm"(submit)="login()">
+  <fieldset class="form">
+    <legend>Login de Usuario</legend>
+    <div class="form__email">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" />
+      <p
+        *ngIf="userForm.get('email')?.dirty
+          && userForm.get('email')?.errors?.['required']
+          "
+      >
+        El email es requerido
+      </p>
+    </div>
+    <div class="form__password">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" />
+      <p
+        *ngIf="userForm.get('password')?.dirty
+          && userForm.get('password')?.errors?.['required']
+          "
+      >
+        El password es requerido
+      </p>
+    </div>
+    <games-button></games-button>
+  </fieldset>
+</form>

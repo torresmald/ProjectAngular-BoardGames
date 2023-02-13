@@ -1,0 +1,61 @@
+@import "../../../styles/styles.scss";
+.game {
+  flex-direction: column;
+  font-family: "Dinosaur";
+  color: #00416a;
+  display: flex;
+  align-items: center;
+  &__title {
+    text-align: center;
+    font-size: 25px;
+  }
+  &__image {
+    width: 60%;
+    border-radius: 20%;
+    margin: auto;
+  }
+  &__image:hover {
+    transform: scale(1.1);
+  }
+  &__category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &_name :last-child{
+        color: $color-tertiary;
+        font-style: italic;
+    }
+    &_desc :nth-child(2){
+        color: $color-tertiary;
+        font-style: italic;
+        font-size: 12px;
+    }
+  }
+}
+.send{
+    margin: 0 auto;
+    display: table-cell;
+    vertical-align: middle;
+    width: 200px;
+    text-align: center;
+    font-family: "Dinosaur";
+    font-size: 10px;
+    color: #fff;
+    background-color: $color-primary;
+    padding: 10px 30px;
+    border: 2px solid $color-primary;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    cursor: pointer;
+}
+.send:hover {
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: $color-primary;
+    border: solid 2px $color-primary;
+  }
