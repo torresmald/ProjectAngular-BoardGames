@@ -1,3 +1,3 @@
-import { Age } from '../../categories/transformed/age.model';
+import { Age } from './age.model';
 
 export const ages: Age[] = ['Adult', 'Child'];

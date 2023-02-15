@@ -1,13 +1,7 @@
-import { Age } from "../../categories/transformed/age.model";
+import { Age } from "../transformed/age.model";
+import { Users } from "../transformed/users.model";
 
 export interface ApiUsers {
-    _id?: string,
-    email: string,
-    password: string,
-    age: number,
-    nickname: string,
-    favoriteGames?: string[],
-    __v?: number,
-    createdAt?: string,
-    updatedAt?: string
+    user: Users,
+    token: string
 }

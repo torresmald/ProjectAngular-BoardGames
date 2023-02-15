@@ -15,6 +15,7 @@ import { UsersService } from 'src/app/core/services/users/users.service';
 })
 export class RegisterComponent {
   public userForm?: FormGroup;
+  public isUserRegistered: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private usersService: UsersService,
@@ -36,6 +37,7 @@ export class RegisterComponent {
     if(!this.userForm?.valid){return;}
     const userRequest = this.usersService.createUser(this.userForm?.value);
     userRequest.subscribe(() => {
+      this.isUserRegistered = true;
       this.userForm?.reset();
       this.router.navigate(['login']);
     });

@@ -3,37 +3,43 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiBoardGames, ApiPagedBoardGames } from '../../../models/boardGames/api/api-boardGames.model';
 import { BoardGames } from '../../../models/boardGames/transformed/boardGames.model';
+import {HttpParams} from "@angular/common/http";
 
 
-const games = 'games'
-const page = 1;
-const API_BOARDGAMES_URL = `https://api-board-games.vercel.app/${games}`;
-const API_BOARDGAMESPAGED_URL = `https://api-board-games.vercel.app/games/paged?page=${page}`;
+const API_URLS = {
+  DOMAIN: 'https://api-board-games.vercel.app/',
+  GAMES: 'games/',
+  PAGED_GAMES: 'games/paged'
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class ApiBoardGamesService {
+  private GAMES_URL = `${API_URLS.DOMAIN}${API_URLS.GAMES}`;
+  private PAGED_GAMES_URL = `${API_URLS.DOMAIN}${API_URLS.PAGED_GAMES}`;
+
   constructor(private request: HttpClient) {}
 
   public getApiBoardGames(): Observable<ApiBoardGames[]> {
-    return this.request.get<ApiBoardGames[]>(`${API_BOARDGAMES_URL}`);
+    return this.request.get<ApiBoardGames[]>(`${this.GAMES_URL}`);
   }
-  public getApiBoardGamesPaged(): Observable<ApiPagedBoardGames> {
-    return this.request.get<ApiPagedBoardGames>(`${API_BOARDGAMESPAGED_URL}`);
+  public getApiBoardGamesPaged(page: string = '1'): Observable<ApiPagedBoardGames> {
+    return this.request.get<ApiPagedBoardGames>(`${this.PAGED_GAMES_URL}?page=${page}`);
   }
   public getApiBoardGameDetail(id: string): Observable<ApiBoardGames> {
-    return this.request.get<ApiBoardGames>(`${API_BOARDGAMES_URL}/${id}`);
+    return this.request.get<ApiBoardGames>(`${this.GAMES_URL}${id}`);
   }
   public deleteApiBoardGame(id: string): Observable<ApiBoardGames> {
-    return this.request.delete<ApiBoardGames>(`${API_BOARDGAMES_URL}/${id}`);
+    return this.request.delete<ApiBoardGames>(`${this.GAMES_URL}${id}`);
   }
   public editApiBoardGame(
     id: string,
     body: BoardGames
   ): Observable<ApiBoardGames> {
-    return this.request.put<ApiBoardGames>(`${API_BOARDGAMES_URL}/${id}`, body);
+    return this.request.put<ApiBoardGames>(`${this.GAMES_URL}${id}`, body);
   }
   public createApiBoardGame(body: BoardGames): Observable<ApiBoardGames> {
-    return this.request.post<ApiBoardGames>(`${API_BOARDGAMES_URL}`, body);
+    return this.request.post<ApiBoardGames>(`${this.GAMES_URL}`, body);
   }
 }

@@ -1,28 +1,48 @@
 <div class="filters">
-  <input placeholder= 'Filtra por titulo' type="text" [(ngModel)]="boardGameTitle" class="filters__title">
+  <input
+    placeholder="Filtra por titulo"
+    type="text"
+    [(ngModel)]="boardGameTitle"
+    class="filters__title"
+  />
+  <div class="filters__category">
+    <label for="category">Filtra por Categoría</label>
+    <select name="categories" id="category" [(ngModel)]="boardGameCategory">
+      <option default value=""></option>
+      <option *ngFor="let category of filterCategories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+  </div>
   <fieldset class="filters__sort">
     <legend>Ordena por año</legend>
     <div>
-      <input type="radio" id="asc" [(ngModel)]="sortByYear" value="asc">
+      <input type="radio" id="asc" [(ngModel)]="sortByYear" value="asc" />
       <label for="asc">Ascendente</label>
     </div>
     <div>
-      <input type="radio" id="desc" [(ngModel)]="sortByYear" value="desc">
+      <input type="radio" id="desc" [(ngModel)]="sortByYear" value="desc" />
       <label for="desc">Descendente</label>
     </div>
   </fieldset>
-  <button (click)="navigateToFormGames()" class="filters__addGame">Añadir Juego</button>
+  <button (click)="navigateToFormGames()" class="filters__addGame">
+    Añadir Juego
+  </button>
 </div>
 <div class="games">
   <game-game
-    *ngFor="let boardGame of  boardGames$ | async | filter:boardGameTitle | sortYear:sortByYear "
+    *ngFor="
+      let boardGame of boardGamesPaged$
+        | async
+        | filter : boardGameTitle
+        | sortYear : sortByYear
+        | category : boardGameCategory
+    "
     [boardGame]="boardGame"
     (onRemove)="removeBoardGame(boardGame._id)"
   ></game-game>
- 
-    <!-- <button (click)="nextPage()">Pagina Anterior</button>
-    <button (click)="previousPage()">Pagina Siguiente</button> -->
 </div>
-
-
-
+<div class="buttons">
+  <button (click)="getPreviousPage()" class="buttons__previousPage">Pagina Anterior</button>
+  <button (click)="getNextPage()" class="buttons__nextPage">Pagina Siguiente</button>
+</div>

@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UsersService } from 'src/app/core/services/users/users.service';
 
 @Component({
@@ -16,9 +15,8 @@ import { UsersService } from 'src/app/core/services/users/users.service';
 })
 export class LoginComponent {
   public userForm?: FormGroup;
-
+  public errors?: string = '';
   constructor(
-    private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
     private userService: UsersService
@@ -33,10 +31,17 @@ export class LoginComponent {
   }
   public login() {
     const userRequest = this.userService.loginUser(this.userForm?.value);
-    userRequest.subscribe(() => {
-      this.authService.login();
-      this.userForm?.reset();
-      this.router.navigate(['account']);
+    userRequest.subscribe({
+      next: () => {
+        if (!this.userForm?.valid) {
+          return;
+        }
+        this.userForm?.reset();
+        this.router.navigate(['account']);
+      },
+      error: (error) => {
+        this.errors = error.error;
+      },
     });
   }
 }

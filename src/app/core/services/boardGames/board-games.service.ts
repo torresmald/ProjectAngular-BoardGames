@@ -29,16 +29,15 @@ export class BoardGamesService {
       tap(() => this.loadingService.hideLoading())
     );
   }
-  public getBoardGamesPaged(): Observable<PagedBoardGames> {
+  public getBoardGamesPaged(page?: string): Observable<PagedBoardGames> {
     this.loadingService.showLoading();
-    return this.apiBoardGamesService.getApiBoardGamesPaged().pipe(
+    return this.apiBoardGamesService.getApiBoardGamesPaged(page).pipe(
       map((pagedBoardGames) => {
         return {...pagedBoardGames, 
-          nextPage: pagedBoardGames.nextPage,
-          previousPage: pagedBoardGames.previousPage,
           games: pagedBoardGames.games.map((boardGame) =>
           transformDataGames(boardGame))}
       }),
+      // TODO: Unificar toda la gestión de loadings, usando un interceptor de HTTP (HTTPInterceptor)
       tap(() =>  this.loadingService.hideLoading())
       )
   }

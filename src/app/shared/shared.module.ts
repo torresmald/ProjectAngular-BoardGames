@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FilterPipe } from './pipes/Filter/filter.pipe';
 import { SortYearPipe } from './pipes/Sort/sort-year.pipe';
 import { ButtonComponent } from './components/button/button.component';
+import { CategoryPipe } from './pipes/Filter/category.pipe';
 
 
 
@@ -10,7 +11,8 @@ import { ButtonComponent } from './components/button/button.component';
   declarations: [
     FilterPipe,
     SortYearPipe,
-    ButtonComponent
+    ButtonComponent,
+    CategoryPipe
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ButtonComponent } from './components/button/button.component';
   exports: [
     FilterPipe,
     SortYearPipe,
-    ButtonComponent
+    ButtonComponent,
+    CategoryPipe
   ]
 })
 export class SharedModule { }

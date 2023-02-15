@@ -11,6 +11,7 @@
       >
         El email es requerido
       </p>
+      
     </div>
     <div class="form__password">
       <label for="password">Password</label>
@@ -23,6 +24,13 @@
         El password es requerido
       </p>
     </div>
+    <p
+        *ngIf="errors"
+      >
+        {{errors}}
+      </p>
     <games-button></games-button>
   </fieldset>
 </form>
+
+

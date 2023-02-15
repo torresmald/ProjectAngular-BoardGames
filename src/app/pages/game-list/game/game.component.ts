@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { BoardGames } from '../../../core/models/boardGames/transformed/boardGames.model';
+import { BoardGames, PagedBoardGames } from '../../../core/models/boardGames/transformed/boardGames.model';
 
 @Component({
   selector: 'game-game',
@@ -9,6 +9,8 @@ import { BoardGames } from '../../../core/models/boardGames/transformed/boardGam
 })
 export class GameComponent {
   @Input() public boardGame?: BoardGames;
+  @Input() public boardGamePage?: PagedBoardGames;
+
   @Output() public onRemove: EventEmitter<void> = new EventEmitter<void>();
   constructor(private router: Router) {}
 

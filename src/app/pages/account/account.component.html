@@ -1,2 +1,7 @@
-<p>account works!</p>
-<button (click)="logout()">Logout</button>
+<div class="account">
+    <h5 class="account__welcome">BIENVENIDO!</h5>
+    <p class="account__nick">Nick: {{userData?.nickname}}</p>
+    <p class="account__email">Email: {{userData?.email}}</p>
+    <button (click)="logout()" class="logout">Logout</button>
+</div>
+

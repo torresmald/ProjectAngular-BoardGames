@@ -1,6 +1,8 @@
 @import '../../../styles/styles.scss';
 
 .form{
+    text-align: center;
+    margin-top: 200px;
     border-color: #eaba77;
     border-style: solid;
     font-family: 'Dinosaur';
@@ -11,7 +13,11 @@
     gap: 10px;
     &__email, &__password{
         display: flex;
+        flex-direction: column;
         gap: 10px;
+    }
+    &__password{
+        margin-bottom: 20px;
     }
     p{
         color: $color-tertiary;

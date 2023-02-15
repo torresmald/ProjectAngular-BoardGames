@@ -5,22 +5,23 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { FormBoardGameComponent } from 'src/app/pages/form-board-game/form-board-game.component';
+import { first, Observable } from 'rxjs';
+import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { ModalService } from '../../services/modal/modal.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ExitGuardGuard implements CanDeactivate<FormBoardGameComponent> {
+export class ExitRegisterGuard implements CanDeactivate<RegisterComponent> {
   constructor(private modalService: ModalService) {}
+
   canDeactivate(
-    component: FormBoardGameComponent,
+    component: RegisterComponent,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    component.isBoardGameCreated || !component.boardGamesForm?.dirty
+    (component.isUserRegistered || !component.userForm?.dirty)
       ? true
       : this.modalService.showModal(
           'NO HAS TERMINADO DE RELLENAR EL FORMULARIO'

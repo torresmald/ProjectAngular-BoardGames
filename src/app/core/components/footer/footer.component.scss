@@ -1,8 +1,9 @@
 @import "../../../../styles/styles.scss";
 
+.divFooter{
+  margin-top: 400px;
+}
 .footer {
-  position:absolute;
-  bottom:0;
   background: linear-gradient(to right, #f46b45, #eaba77);
   font-family: "Dinosaur";
   display: flex;
