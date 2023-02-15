@@ -1,28 +1,48 @@
 <div class="game">
-  <p class="game__title">{{ boardGame?.title }}</p>
-  <img [src]="boardGame?.picture" alt="BoardGame Image" class="game__image"/>
+  <h2 class="game__title">{{ boardGame?.title }}</h2>
+  <img [src]="boardGame?.picture" alt="BoardGame Image" class="game__image" />
   <div class="game__category">
     <div class="game__category_name">
-      <p>Categoria:</p>
-      <p>{{boardGame?.category?.name}}</p>
+      <h4>Categoria:</h4>
+      <p>{{ boardGame?.category?.name }}</p>
     </div>
     <div class="game__category_desc">
-      <p>Descripcion:</p>
-      <p>{{boardGame?.category?.description}}</p>
+      <h4>Descripcion:</h4>
+      <p>{{ boardGame?.category?.description }}</p>
     </div>
   </div>
   <div class="game__designer">
-    <ul>
-      <p>Diseñadores:</p>
-      <li *ngFor="let designer of boardGame?.designer">{{ designer }}</li>
+    <ul class="game__designer_list">
+      <h4>Diseñadores:</h4>
+      <div class="game__designer_item">
+        <li *ngFor="let designer of boardGame?.designer">{{ designer }}</li>
+      </div>
     </ul>
   </div>
-  <p>Editorial: {{ boardGame?.publisher }}</p>
-  <p>Año Lanzamiento: {{ boardGame?.year }}</p>
-  <p>Número Jugadores: {{ boardGame?.players }}</p>
-  <p>Duración partida: {{ boardGame?.playingTime }}</p>
-  <p>Dificultad: {{ boardGame?.weight }}</p>
-  <p>¿Es para niños?:  {{ boardGame?.isForChilds === true ? 'Si!!' : '¡NO!' }}</p>
+  <div class="game__publisher">
+    <h4>Editorial:</h4>
+    <p>{{ boardGame?.publisher }}</p>
+  </div>
+  <div class="game__year">
+    <h4>Año Lanzamiento:</h4>
+    <p>{{ boardGame?.year }}</p>
+  </div>
+  <div class="game__players">
+    <h4>Número Jugadores:</h4>
+    <p>{{ boardGame?.players }}</p>
+  </div>
+  <div class="game__time">
+    <h4>Duración partida:</h4>
+    <p>{{ boardGame?.playingTime }}</p>
+  </div>
+  <div class="game__weight">
+    <h4>Dificultad:</h4>
+    <p>{{ boardGame?.weight }}</p>
+  </div>
+  <div class="game__childs">
+    <h4>¿Es para niños?:</h4>
+    <p>{{ boardGame?.isForChilds === true ? "Si!!" : "¡NO!" }}</p>
+  </div>
+  <button (click)="backToList()" class="send">Volver al Listado</button>
 </div>
 
-<button (click)="backToList()" class="send">Volver al Listado</button>

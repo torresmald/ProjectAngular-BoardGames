@@ -11,10 +11,14 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    p{
-        color: $color-tertiary;
+    input{
+        font-family: 'Dinosaur';
+        color: $color-primary;
     }
-    &__email, &__password, &__nickname, &__age{
+    p{
+        color: $color-error;
+    }
+    &__email, &__password, &__nickname, &__age, &__picture{
         display: flex;
         flex-direction: column;
         align-items: center;

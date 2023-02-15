@@ -1,6 +1,4 @@
-import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { map, Observable, ReplaySubject, tap } from 'rxjs';
 import { ApiUsers } from '../../models/users/api/api-users.model';
 import { Users } from '../../models/users/transformed/users.model';
@@ -18,8 +16,7 @@ export class UsersService {
 
   constructor(
     private apiUsersService: ApiUsersService,
-    private modalService: ModalService,
-    private router: Router
+    private modalService: ModalService
   ) {
     this.userLogged$.next(this.isLogged());
   }
@@ -38,7 +35,8 @@ export class UsersService {
           token: response.token,
           email: response.user.email,
           age: response.user.age,
-          nickname: response.user.nickname
+          nickname: response.user.nickname,
+          picture: response.user.picture
         });
         localStorage.setItem(TOKEN_KEY, saveStore);
         this.userLogged$.next(true);

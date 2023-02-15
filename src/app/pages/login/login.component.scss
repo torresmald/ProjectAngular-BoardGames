@@ -19,7 +19,11 @@
     &__password{
         margin-bottom: 20px;
     }
+    input{
+        font-family: 'Dinosaur';
+        color: $color-primary;
+    }
     p{
-        color: $color-tertiary;
+        color: $color-error;
     }
 }

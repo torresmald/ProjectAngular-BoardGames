@@ -37,6 +37,8 @@ export class RegisterComponent {
     if(!this.userForm?.valid){return;}
     const userRequest = this.usersService.createUser(this.userForm?.value);
     userRequest.subscribe(() => {
+      console.log(this.userForm?.value);
+      
       this.isUserRegistered = true;
       this.userForm?.reset();
       this.router.navigate(['login']);

@@ -6,8 +6,10 @@
 .footer {
   background: linear-gradient(to right, #f46b45, #eaba77);
   font-family: "Dinosaur";
+  text-align: center;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   color: $color-primary;
   width: 100%;
   &__logo {
@@ -24,6 +26,9 @@
       width: 20px;
       margin: auto;
     }
+  }
+  &__copyright{
+    color: $color-secundary;
   }
   &__rrss {
     display: flex;

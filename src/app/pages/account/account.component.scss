@@ -1,31 +1,47 @@
-@import '../../../styles/styles.scss';
-.account{
+@import "../../../styles/styles.scss";
+.account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Dinosaur";
+  color: $color-primary;
+  gap: 20px;
+  &__data {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: 'Dinosaur';
-    color: $color-primary;
     gap: 20px;
-    &__welcome{
-        font-size: 30px;
+    margin-bottom: 30px;
+    &_avatar {
+      height: 300px;
+      width: 200px;
     }
+    &_info {
+      color: $color-tertiary;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__welcome {
+    font-size: 40px;
+  }
 }
-.logout{
-    margin: 0 auto;
-    display: table-cell;
-    vertical-align: middle;
-    width: 200px;
-    text-align: center;
-    font-family: "Dinosaur";
-    font-size: 10px;
-    color: #fff;
-    background-color: #00416A;
-    padding: 10px 30px;
-    border: 2px solid #00416A;
-    box-shadow: rgb(0 0 0) 0px 0px 0px 0px;
-    border-radius: 50px;
-    transition: 1000ms;
-    transform: translateY(0);
-    cursor: pointer;
+.logout {
+  margin: 0 auto;
+  display: table-cell;
+  vertical-align: middle;
+  width: 200px;
+  text-align: center;
+  font-family: "Dinosaur";
+  font-size: 10px;
+  color: #fff;
+  background-color: #00416a;
+  padding: 10px 30px;
+  border: 2px solid #00416a;
+  box-shadow: rgb(0 0 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  cursor: pointer;
 }

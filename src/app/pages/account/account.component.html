@@ -1,7 +1,12 @@
 <div class="account">
     <h5 class="account__welcome">BIENVENIDO!</h5>
-    <p class="account__nick">Nick: {{userData?.nickname}}</p>
-    <p class="account__email">Email: {{userData?.email}}</p>
+    <div class="account__data">
+        <img class="account__data_avatar" src={{userData?.picture}} alt="Avatar">
+        <div class="account__data_info">
+            <p>Nick: {{userData?.nickname}}</p>
+            <p>Email: {{userData?.email}}</p>
+        </div>
+    </div>
     <button (click)="logout()" class="logout">Logout</button>
 </div>
 

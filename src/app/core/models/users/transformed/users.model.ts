@@ -5,6 +5,7 @@ export interface Users {
     password: string,
     age: number,
     nickname: string,
+    picture: string,
     createdAt?: string,
     updatedAt?: string,
     __v?: number

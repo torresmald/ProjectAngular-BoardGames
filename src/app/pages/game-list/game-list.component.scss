@@ -26,6 +26,7 @@
     border: 2px solid #eb876b;
   }
   &__addGame {
+
     margin: 0 auto;
     display: table-cell;
     vertical-align: middle;
@@ -143,4 +144,8 @@
       font-size: 20px;
     }
   }
+}
+
+.none{
+  display: none;
 }

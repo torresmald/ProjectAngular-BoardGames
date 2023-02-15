@@ -43,6 +43,10 @@
   ></game-game>
 </div>
 <div class="buttons">
-  <button (click)="getPreviousPage()" class="buttons__previousPage">Pagina Anterior</button>
-  <button (click)="getNextPage()" class="buttons__nextPage">Pagina Siguiente</button>
+  <button 
+  [ngClass]="previousPage === null ? 'none' : 'buttons__previousPage'"
+  (click)="getPreviousPage()">Pagina Anterior</button>
+  <button 
+  [ngClass]="nextPage === null ? 'none' : 'buttons__nextPage'"
+  (click)="getNextPage()">Pagina Siguiente</button>
 </div>

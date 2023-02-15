@@ -1,5 +1,43 @@
+@import '../../../styles/styles.scss';
 .form{
+    font-family: 'Dinosaur';
+    color: $color-primary;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
+    margin-top: 30px;
 }
+p{
+    color: $color-error;
+}
+input{
+   font-family: 'Dinosaur';
+   color: $color-tertiary;
+}
+.send {
+    margin: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 200px;
+    text-align: center;
+    font-family: "Dinosaur";
+    font-size: 14px;
+    color: #fff;
+    background-color: $color-primary;
+    padding: 20px 40px;
+    border: 2px solid $color-primary;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    cursor: pointer;
+  }
+  .send:hover {
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: $color-primary;
+    border: solid 2px $color-primary;
+  }
