@@ -8,7 +8,7 @@ const routes: Routes = [{
   path: '',
   component: FormBoardGameComponent,
   canActivate: [AuthGuard],
-  // canDeactivate: [ExitGuardGuard]
+  canDeactivate: [ExitGuardGuard]
 }];
 
 @NgModule({

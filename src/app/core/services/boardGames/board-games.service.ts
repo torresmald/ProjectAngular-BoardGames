@@ -8,6 +8,9 @@ import { LoadingService } from '../loading/loading.service';
 import { CategoriesService } from '../categories/categories.service';
 import { ModalService } from '../modal/modal.service';
 
+
+// TODO: Unificar toda la gestión de loadings, usando un interceptor de HTTP (HTTPInterceptor)
+
 @Injectable({
   providedIn: 'root',
 })
@@ -37,7 +40,6 @@ export class BoardGamesService {
           games: pagedBoardGames.games.map((boardGame) =>
           transformDataGames(boardGame))}
       }),
-      // TODO: Unificar toda la gestión de loadings, usando un interceptor de HTTP (HTTPInterceptor)
       tap(() =>  this.loadingService.hideLoading())
       )
   }

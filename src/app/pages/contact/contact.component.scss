@@ -5,10 +5,13 @@
   font-size: 30px;
   font-family: "Dinosaur";
   padding: 50px 0px 150px 0px;
-  gap: 10px;
+  gap: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  input::placeholder{
+    color: $color-tertiary;
+  }
   &__area {
     background-color: #dddddd;
     color: #666666;

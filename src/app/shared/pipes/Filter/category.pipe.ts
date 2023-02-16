@@ -3,7 +3,8 @@ import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGame
 import { Categories } from 'src/app/core/models/categories/transformed/category.data';
 
 @Pipe({
-  name: 'category'
+  name: 'category',
+  pure: true
 })
 export class CategoryPipe implements PipeTransform {
 

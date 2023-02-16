@@ -8,7 +8,7 @@
   <div class="filters__category">
     <label for="category">Filtra por Categoría</label>
     <select name="categories" id="category" [(ngModel)]="boardGameCategory">
-      <option default value=""></option>
+      <option default value="">Categoría</option>
       <option *ngFor="let category of filterCategories" [value]="category">
         {{ category }}
       </option>
@@ -25,6 +25,17 @@
       <label for="desc">Descendente</label>
     </div>
   </fieldset>
+  <fieldset class="filters__age">
+    <legend>Juegos por Edad</legend>
+    <div>
+      <input type="radio" id="false" [(ngModel)]="isForChilds" value='false' />
+      <label for="false">Adultos</label>
+    </div>
+    <div>
+      <input type="radio" id="true" [(ngModel)]="isForChilds" value="true" />
+      <label for="true">Niños</label>
+    </div>
+  </fieldset>
   <button (click)="navigateToFormGames()" class="filters__addGame">
     Añadir Juego
   </button>
@@ -37,6 +48,7 @@
         | filter : boardGameTitle
         | sortYear : sortByYear
         | category : boardGameCategory
+        | childs: isForChilds
     "
     [boardGame]="boardGame"
     (onRemove)="removeBoardGame(boardGame._id)"

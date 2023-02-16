@@ -22,6 +22,7 @@ export class GameListComponent {
   public boardGameTitle: string = '';
   public sortByYear?: 'asc' | 'desc';
   public boardGameCategory?: Categories;
+  public isForChilds?: 'true' | 'false';
   public filterCategories: Categories[] = categories;
   constructor(
     private boardGamesService: BoardGamesService,

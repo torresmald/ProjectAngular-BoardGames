@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
@@ -25,7 +23,7 @@ export class ModalComponent implements OnInit  {
   }
   
   public confirm(cancel: boolean){
-    console.log(cancel);
-    this.modalService.closeModal(cancel) 
+    this.modalService.closeModal(cancel)
+    this.modalService.result$.next(cancel); 
   }
 }

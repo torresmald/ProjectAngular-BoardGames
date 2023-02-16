@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGames.model';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: true
 })
 export class FilterPipe implements PipeTransform {
 

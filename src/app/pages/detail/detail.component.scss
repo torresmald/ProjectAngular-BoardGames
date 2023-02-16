@@ -2,10 +2,14 @@
 .game {
   p {
     color: $color-tertiary;
-    font-size: 20px;
+    font-size: 10px;
   }
-  ul{
+  ul {
     padding: 0px;
+    margin: 0px;
+  }
+  h4 {
+    font-size: 15px;
   }
   flex-direction: column;
   font-family: "Dinosaur";
@@ -14,12 +18,11 @@
   align-items: center;
   text-align: center;
   &__title {
-    margin-bottom: 45px;
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
   }
   &__image {
-    width: 50%;
+    width: 35%;
     max-height: 800px;
     border-radius: 20%;
     margin: auto;
@@ -28,9 +31,12 @@
     transform: scale(1.1);
   }
   &__designer {
-    text-align: center;
-    &_list :nth-child(1n + 2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &_list li {
       list-style: none;
+      font-size: 10px;
       color: $color-tertiary;
     }
     &_item {
@@ -43,7 +49,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 20px;
     &_name :last-child {
       color: $color-tertiary;
       font-style: italic;
@@ -51,7 +56,7 @@
     &_desc :nth-child(2) {
       color: $color-tertiary;
       font-style: italic;
-      font-size: 14px;
+      
     }
   }
 }
@@ -80,4 +85,58 @@
   background-color: #fff;
   color: $color-primary;
   border: solid 2px $color-primary;
+}
+
+@media screen and (min-width: 762px) {
+  .game {
+    flex-direction: row;
+    align-items: baseline;
+    .gameWrapImage {
+      flex-basis: 70%;
+      .game__title {
+        font-size: 40px;
+      }
+      .game__image {
+        height: 400px;
+        width: 400px;
+      }
+    }
+    &__category{
+      &_desc:nth-child(2){
+        width: 50%;
+      }
+    }
+    .gameWrapData {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      margin-top: 100px;
+    }
+    &__category {
+      align-items: flex-start;
+      text-align: initial;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 5px;
+      margin-left: 0px;
+    }
+    h4 {
+      font-size: 20px;
+      margin: 0px;
+    }
+    li {
+      font-size: 15px;
+    }
+    &__title {
+      font-size: 20px;
+      margin-bottom: 45px;
+    }
+  }
+  .gameButton{
+    display: flex;
+    justify-content: center;
+  }
 }

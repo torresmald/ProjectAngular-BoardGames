@@ -9,6 +9,9 @@ import { Observable } from 'rxjs';
 import { FormBoardGameComponent } from 'src/app/pages/form-board-game/form-board-game.component';
 import { ModalService } from '../../services/modal/modal.service';
 
+// TODO: arreglar
+
+
 @Injectable({
   providedIn: 'root',
 })

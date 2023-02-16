@@ -2,7 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGames.model';
 
 @Pipe({
-  name: 'sortYear'
+  name: 'sortYear',
+  pure: true
+
 })
 export class SortYearPipe implements PipeTransform {
   transform(value: BoardGames[] | null, condition?: "asc" | "desc"): BoardGames[] {

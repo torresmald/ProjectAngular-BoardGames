@@ -1,3 +1,3 @@
-export type Age =
-  | 'Adult'
-  | 'Child'
+// export type Age =
+//   | 'Adult'
+//   | 'Child'
