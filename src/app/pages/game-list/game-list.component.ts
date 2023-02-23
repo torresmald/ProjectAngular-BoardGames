@@ -4,10 +4,7 @@ import { map, Observable, switchMap, tap } from 'rxjs';
 import { categories } from 'src/app/core/models/boardGames/transformed/boardGames.data';
 import { Categories } from 'src/app/core/models/categories/transformed/category.data';
 import { BoardGamesService } from 'src/app/core/services/boardGames/board-games.service';
-import {
-  BoardGames,
-  PagedBoardGames,
-} from '../../core/models/boardGames/transformed/boardGames.model';
+import {BoardGames} from '../../core/models/boardGames/transformed/boardGames.model';
 
 @Component({
   selector: 'games-game-list',
@@ -38,8 +35,6 @@ export class GameListComponent {
       }),
       map((pagedBoardGame) => pagedBoardGame.games)
     );
-    // this.boardGames$ = this.boardGamesService.getBoardGames();
-    // this.boardGamesPaged$ = this.boardGamesService.getBoardGamesPaged();
   }
 
   public navigateToFormGames() {

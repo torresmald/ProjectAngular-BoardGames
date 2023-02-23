@@ -9,7 +9,6 @@ import { CategoriesService } from '../categories/categories.service';
 import { ModalService } from '../modal/modal.service';
 
 
-// TODO: Unificar toda la gestión de loadings, usando un interceptor de HTTP (HTTPInterceptor)
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +25,15 @@ export class BoardGamesService {
   public getBoardGames(): Observable<BoardGames[]> {
     this.loadingService.showLoading();
     return this.apiBoardGamesService.getApiBoardGames().pipe(
+      map((boardGames: ApiBoardGames[]) => {
+        return boardGames.map((boardGame) => transformDataGames(boardGame));
+      }),
+      tap(() => this.loadingService.hideLoading())
+    );
+  }
+  public getMyBoardGames(): Observable<BoardGames[]> {
+    this.loadingService.showLoading();
+    return this.apiBoardGamesService.getApiMyBoardGames().pipe(
       map((boardGames: ApiBoardGames[]) => {
         return boardGames.map((boardGame) => transformDataGames(boardGame));
       }),
@@ -62,6 +70,12 @@ export class BoardGamesService {
     this.modalService.showModal('ELIMINADO CON ÉXITO!')
     return this.apiBoardGamesService
       .deleteApiBoardGame(id)
+      .pipe(map((boardGame) => transformDataGames(boardGame)));
+  }
+  public deleteMyBoardGame(id: string): Observable<BoardGames> {
+    this.modalService.showModal('ELIMINADO CON ÉXITO!')
+    return this.apiBoardGamesService
+      .deleteApiMyBoardGame(id)
       .pipe(map((boardGame) => transformDataGames(boardGame)));
   }
 

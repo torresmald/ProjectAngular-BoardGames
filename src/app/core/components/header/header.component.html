@@ -27,6 +27,15 @@
         <a
           class="header__list_item"
           (click)="selectedRoute()"
+          [ngClass]="{ header__active: currentRoute === '/myGames' }"
+          [routerLink]="['myGames']"
+          >Mis Juegos</a
+        >
+      </li>
+      <li>
+        <a
+          class="header__list_item"
+          (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/contact' }"
           [routerLink]="['contact']"
           >Contacto</a

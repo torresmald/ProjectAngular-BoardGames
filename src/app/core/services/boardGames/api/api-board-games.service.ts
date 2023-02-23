@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiBoardGames, ApiPagedBoardGames } from '../../../models/boardGames/api/api-boardGames.model';
 import { BoardGames } from '../../../models/boardGames/transformed/boardGames.model';
-import {HttpParams} from "@angular/common/http";
 
 
 const API_URLS = {
   DOMAIN: 'https://api-board-games.vercel.app/',
   GAMES: 'games/',
-  PAGED_GAMES: 'games/paged'
+  PAGED_GAMES: 'games/paged',
+  MYGAMES: 'mygames/'
 }
 
 @Injectable({
@@ -18,11 +18,14 @@ const API_URLS = {
 export class ApiBoardGamesService {
   private GAMES_URL = `${API_URLS.DOMAIN}${API_URLS.GAMES}`;
   private PAGED_GAMES_URL = `${API_URLS.DOMAIN}${API_URLS.PAGED_GAMES}`;
-
+  private MYBOARDGAMES_URL= `${API_URLS.DOMAIN}${API_URLS.MYGAMES}`
   constructor(private request: HttpClient) {}
 
   public getApiBoardGames(): Observable<ApiBoardGames[]> {
     return this.request.get<ApiBoardGames[]>(`${this.GAMES_URL}`);
+  }
+  public getApiMyBoardGames(): Observable<ApiBoardGames[]> {
+    return this.request.get<ApiBoardGames[]>(`${this.MYBOARDGAMES_URL}`);
   }
   public getApiBoardGamesPaged(page: string = '1'): Observable<ApiPagedBoardGames> {
     return this.request.get<ApiPagedBoardGames>(`${this.PAGED_GAMES_URL}?page=${page}`);
@@ -32,6 +35,9 @@ export class ApiBoardGamesService {
   }
   public deleteApiBoardGame(id: string): Observable<ApiBoardGames> {
     return this.request.delete<ApiBoardGames>(`${this.GAMES_URL}${id}`);
+  }
+  public deleteApiMyBoardGame(id: string): Observable<ApiBoardGames> {
+    return this.request.delete<ApiBoardGames>(`${this.MYBOARDGAMES_URL}${id}`);
   }
   public editApiBoardGame(
     id: string,

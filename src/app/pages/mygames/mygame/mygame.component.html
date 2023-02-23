@@ -1,0 +1,19 @@
+<div class="game">
+    <p>{{ boardGame?.title }}</p>
+    <img [src]="boardGame?.picture" alt="BoardGame Image" class="game__image" (click)="navigateToDetail()"/>
+    <div class="game__data">
+      <div class="game__data_publisher">
+        <p>Editorial:</p>
+        <p>{{ boardGame?.publisher }}</p>
+      </div>
+      <div class="game__data_year">
+        <p>Año Lanzamiento:</p>
+        <p>{{ boardGame?.year }}</p>
+      </div>
+    </div>
+    <div class="game__button">
+      <button (click)="editBoardGame()" class="send">Editar</button>
+      <button (click)="removeBoardGame()" class="delete">Eliminar</button>
+    </div>
+  </div>
+  

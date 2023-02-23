@@ -1,0 +1,11 @@
+<div class="games">
+    <games-mygame
+      *ngFor="
+        let boardGame of boardGames$
+          | async
+      "
+      [boardGame]="boardGame"
+      (onRemove)="removeBoardGame(boardGame._id)"
+    ></games-mygame>
+  </div>
+  
