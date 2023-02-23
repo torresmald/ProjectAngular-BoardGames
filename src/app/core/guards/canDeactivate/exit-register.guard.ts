@@ -23,7 +23,7 @@ export class ExitRegisterGuard implements CanDeactivate<RegisterComponent> {
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    (component.isUserRegistered || !component.userForm?.dirty)
+    (component.isUserRegistered || component.userForm?.dirty)
       ? true
       : this.modalService.showModal(
           'NO HAS TERMINADO DE RELLENAR EL FORMULARIO'
