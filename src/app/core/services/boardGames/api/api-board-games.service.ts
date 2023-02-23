@@ -33,6 +33,9 @@ export class ApiBoardGamesService {
   public getApiBoardGameDetail(id: string): Observable<ApiBoardGames> {
     return this.request.get<ApiBoardGames>(`${this.GAMES_URL}${id}`);
   }
+  public getApiMyBoardGameDetail(id: string): Observable<ApiBoardGames> {
+    return this.request.get<ApiBoardGames>(`${this.MYBOARDGAMES_URL}${id}`);
+  }
   public deleteApiBoardGame(id: string): Observable<ApiBoardGames> {
     return this.request.delete<ApiBoardGames>(`${this.GAMES_URL}${id}`);
   }
@@ -46,6 +49,6 @@ export class ApiBoardGamesService {
     return this.request.put<ApiBoardGames>(`${this.GAMES_URL}${id}`, body);
   }
   public createApiBoardGame(body: BoardGames): Observable<ApiBoardGames> {
-    return this.request.post<ApiBoardGames>(`${this.GAMES_URL}`, body);
+    return this.request.post<ApiBoardGames>(`${this.MYBOARDGAMES_URL}`, body);
   }
 }

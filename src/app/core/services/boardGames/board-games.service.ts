@@ -65,7 +65,19 @@ export class BoardGamesService {
       tap(() => this.loadingService.hideLoading())
     )
   }
-  
+  public getMyBoardGameDetail(id: string): Observable<BoardGames> {
+    this.loadingService.showLoading();
+    return forkJoin([
+      this.apiBoardGamesService.getApiMyBoardGameDetail(id),
+      this.categoriesService.getCategories()
+    ]).pipe(
+      map(([apiBoardGame, categories]) => {
+        const selectedCategory = categories.find((category) => category.name === apiBoardGame.category);
+        return transformDataGames(apiBoardGame, selectedCategory);
+      }),
+      tap(() => this.loadingService.hideLoading())
+    )
+  }
   public deleteBoardGame(id: string): Observable<BoardGames> {
     this.modalService.showModal('ELIMINADO CON ÉXITO!')
     return this.apiBoardGamesService

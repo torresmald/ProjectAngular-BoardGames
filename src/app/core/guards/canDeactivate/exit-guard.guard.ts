@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanDeactivate,
-  RouterStateSnapshot,
-  UrlTree,
+  RouterStateSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormBoardGameComponent } from 'src/app/pages/form-board-game/form-board-game.component';
 import { ModalService } from '../../services/modal/modal.service';
 
-// TODO: arreglar
+
 
 
 @Injectable({

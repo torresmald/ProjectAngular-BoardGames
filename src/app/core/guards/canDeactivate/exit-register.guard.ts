@@ -10,8 +10,6 @@ import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { ModalService } from '../../services/modal/modal.service';
 
 
-// TODO: arreglar
-
 
 @Injectable({
   providedIn: 'root',

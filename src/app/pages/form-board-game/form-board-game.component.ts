@@ -89,7 +89,7 @@ export class FormBoardGameComponent {
     boardGameRequest.subscribe(() => {
       this.isBoardGameCreated = true;
       this.boardGamesForm?.reset();
-      this.router.navigate(['list']);
+      this.router.navigate(['myGames']);
     });
   }
 }

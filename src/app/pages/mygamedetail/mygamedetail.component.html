@@ -1,0 +1,54 @@
+<div class="game">
+    <div class="gameWrapImage">
+      <h2 class="game__title">{{ boardGame?.title }}</h2>
+      <img [src]="boardGame?.picture === (undefined || null) ? 'https://res.cloudinary.com/dpyvlsksj/image/upload/v1677149866/1366_2000_nw4yhd.jpg' : boardGame?.picture" alt="BoardGame Image" class="game__image" />
+    </div>
+    <div class="gameWrapData">
+      <div class="game__category">
+        <div class="game__category_name">
+          <h4>Categoria:</h4>
+          <p>{{ boardGame?.category?.name }}</p>
+        </div>
+        <div class="game__category_desc">
+          <h4>Descripcion:</h4>
+          <p>{{ boardGame?.category?.description }}</p>
+        </div>
+      </div>
+      <div class="game__designer">
+        <ul class="game__designer_list">
+          <h4>Diseñadores:</h4>
+          <div class="game__designer_item">
+            <li *ngFor="let designer of boardGame?.designer">{{ designer }}</li>
+          </div>
+        </ul>
+      </div>
+      <div class="game__publisher">
+        <h4>Editorial:</h4>
+        <p>{{ boardGame?.publisher }}</p>
+      </div>
+      <div class="game__year">
+        <h4>Año Lanzamiento:</h4>
+        <p>{{ boardGame?.year }}</p>
+      </div>
+      <div class="game__players">
+        <h4>Número Jugadores:</h4>
+        <p>{{ boardGame?.players }}</p>
+      </div>
+      <div class="game__time">
+        <h4>Duración partida:</h4>
+        <p>{{ boardGame?.playingTime }}</p>
+      </div>
+      <div class="game__weight">
+        <h4>Dificultad:</h4>
+        <p>{{ boardGame?.weight }}</p>
+      </div>
+      <div class="game__childs">
+        <h4>Es para niños?:</h4>
+        <p>{{ boardGame?.isForChilds === true ? "Si!!" : "¡NO!" }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="gameButton">
+    <button (click)="backToList()" class="send">Volver al Listado</button>
+  </div>
+  

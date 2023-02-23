@@ -8,6 +8,7 @@ import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGame
   styleUrls: ['./mygame.component.scss']
 })
 export class MygameComponent {
+  
   @Input() public boardGame?: BoardGames;
 
   @Output() public onRemove: EventEmitter<void> = new EventEmitter<void>();
@@ -15,7 +16,8 @@ export class MygameComponent {
 
   public navigateToDetail() {
     if (this.boardGame) {
-      this.router.navigate(['detail', this.boardGame.id]);
+      
+      this.router.navigate(['myGames/detail', this.boardGame.id]);
     }
   }
   public editBoardGame() {

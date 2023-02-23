@@ -1,6 +1,6 @@
 <div class="game">
     <p>{{ boardGame?.title }}</p>
-    <img [src]="boardGame?.picture" alt="BoardGame Image" class="game__image" (click)="navigateToDetail()"/>
+    <img [src]="boardGame?.picture === (undefined || null) ? 'https://res.cloudinary.com/dpyvlsksj/image/upload/v1677149866/1366_2000_nw4yhd.jpg' : boardGame?.picture"  alt="BoardGame Image" class="game__image" (click)="navigateToDetail()"/>
     <div class="game__data">
       <div class="game__data_publisher">
         <p>Editorial:</p>

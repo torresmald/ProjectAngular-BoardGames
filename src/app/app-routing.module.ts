@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import ('./pages/detail/detail.module').then(m => m.DetailModule)
   },
   {
+    path: 'myGames/detail/:id',
+    loadChildren: () => import ('./pages/mygamedetail/mygamedetail.module').then(m => m.MygamedetailModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import ('./pages/login/login.module').then(m => m.LoginModule)
   },
