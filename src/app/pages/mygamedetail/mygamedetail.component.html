@@ -1,7 +1,7 @@
 <div class="game">
     <div class="gameWrapImage">
       <h2 class="game__title">{{ boardGame?.title }}</h2>
-      <img [src]="boardGame?.picture === (undefined || null) ? 'https://res.cloudinary.com/dpyvlsksj/image/upload/v1677149866/1366_2000_nw4yhd.jpg' : boardGame?.picture" alt="BoardGame Image" class="game__image" />
+      <img [src]="boardGame?.picture === (undefined || null || '') ? 'https://res.cloudinary.com/dpyvlsksj/image/upload/v1677149866/1366_2000_nw4yhd.jpg' : boardGame?.picture" alt="BoardGame Image" class="game__image" />
     </div>
     <div class="gameWrapData">
       <div class="game__category">

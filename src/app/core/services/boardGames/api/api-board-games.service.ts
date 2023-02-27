@@ -48,6 +48,12 @@ export class ApiBoardGamesService {
   ): Observable<ApiBoardGames> {
     return this.request.put<ApiBoardGames>(`${this.GAMES_URL}${id}`, body);
   }
+  public editApiMyBoardGame(
+    id: string,
+    body: BoardGames
+  ): Observable<ApiBoardGames> {
+    return this.request.put<ApiBoardGames>(`${this.MYBOARDGAMES_URL}${id}`, body);
+  }
   public createApiBoardGame(body: BoardGames): Observable<ApiBoardGames> {
     return this.request.post<ApiBoardGames>(`${this.MYBOARDGAMES_URL}`, body);
   }

@@ -97,6 +97,12 @@ export class BoardGamesService {
       .editApiBoardGame(id, body)
       .pipe(map((boardGame) => transformDataGames(boardGame)));
   }
+  public editMyBoardGame(id: string, body: BoardGames): Observable<BoardGames> {
+    this.modalService.showModal('EDITADO CON ÉXITO!')
+    return this.apiBoardGamesService
+      .editApiMyBoardGame(id, body)
+      .pipe(map((boardGame) => transformDataGames(boardGame)));
+  }
   public createBoardGame(body: BoardGames): Observable<BoardGames> {
     this.modalService.showModal('CREADO CON ÉXITO!')
     return this.apiBoardGamesService

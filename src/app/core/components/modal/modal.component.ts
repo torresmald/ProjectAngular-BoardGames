@@ -13,7 +13,6 @@ export class ModalComponent implements OnInit  {
   constructor(private  modalService: ModalService) {}
   
   public ngOnInit(): void {
-    // TODO: Refactorizar para evitar usar una suscripcion con el pipe async
     this.modalService.shouldShowModal$.subscribe((value) => {
       this.shouldShowModal = value
     });

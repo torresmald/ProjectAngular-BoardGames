@@ -46,6 +46,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/form-board-game/form-board-game.module').then(m => m.FormBoardGameModule)
   },
   {
+    path: 'formMyGames',
+    loadChildren: () => import('./pages/form-my-board-game/form-my-board-game.module').then(m => m.FormMyBoardGameModule)
+  },
+  {
     path: 'myGames',
     loadChildren: () => import ('./pages/mygames/mygames.module').then(m => m.MygamesModule)
   },

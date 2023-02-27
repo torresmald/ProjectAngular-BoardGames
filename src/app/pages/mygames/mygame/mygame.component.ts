@@ -16,12 +16,11 @@ export class MygameComponent {
 
   public navigateToDetail() {
     if (this.boardGame) {
-      
       this.router.navigate(['myGames/detail', this.boardGame.id]);
     }
   }
   public editBoardGame() {
-    this.router.navigate(['formGames'], {
+    this.router.navigate(['formMyGames'], {
       queryParams: {
         id: this.boardGame?.id,
       }, 

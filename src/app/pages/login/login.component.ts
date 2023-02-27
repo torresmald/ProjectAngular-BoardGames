@@ -33,9 +33,6 @@ export class LoginComponent {
     const userRequest = this.userService.loginUser(this.userForm?.value);
     userRequest.subscribe({
       next: () => {
-        if (!this.userForm?.valid) {
-          return;
-        }
         this.userForm?.reset();
         this.router.navigate(['account']);
       },

@@ -6,9 +6,8 @@ import { LoginComponent } from './login.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
-    canDeactivate: [ExitRegisterGuard]
-  }
+    component: LoginComponent 
+   }
 ];
 
 @NgModule({

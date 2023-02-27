@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { switchMap, map, of } from 'rxjs';
-import { BoardGamesService } from 'src/app/core/services/boardGames/board-games.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, of, switchMap } from 'rxjs';
 import { categories, numberPlayers, playingTime } from 'src/app/core/models/boardGames/transformed/boardGames.data';
-import { BoardGames } from '../../core/models/boardGames/transformed/boardGames.model';
-import { NumberPlayers } from '../../core/models/boardGames/transformed/numberPlayers.model';
-import { PlayingTime } from '../../core/models/boardGames/transformed/playingTime.model';
+import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGames.model';
+import { NumberPlayers } from 'src/app/core/models/boardGames/transformed/numberPlayers.model';
+import { PlayingTime } from 'src/app/core/models/boardGames/transformed/playingTime.model';
 import { Categories } from 'src/app/core/models/categories/transformed/category.data';
+import { BoardGamesService } from 'src/app/core/services/boardGames/board-games.service';
 
 @Component({
-  selector: 'games-form-board-game',
-  templateUrl: './form-board-game.component.html',
-  styleUrls: ['./form-board-game.component.scss'],
+  selector: 'games-form-my-board-game',
+  templateUrl: './form-my-board-game.component.html',
+  styleUrls: ['./form-my-board-game.component.scss']
 })
-export class FormBoardGameComponent {
+export class FormMyBoardGameComponent {
+
   public boardGamesForm?: FormGroup;
   public canEdit: boolean = false;
   public categoriesEl: Categories[] = categories;
@@ -41,7 +37,7 @@ export class FormBoardGameComponent {
           return of(undefined);
         } else {
           this.gameId = id;
-          return this.boardGamesService.getBoardGameDetail(id);
+          return this.boardGamesService.getMyBoardGameDetail(id);
         }
       })
     )
@@ -77,16 +73,15 @@ export class FormBoardGameComponent {
   }
 
   public createNewBoardGame() {
-    const boardGameRequest = this.canEdit
-      ? this.boardGamesService.editBoardGame(
+   
+    const boardGameRequest = this.boardGamesService.editMyBoardGame(
           this.gameMongoId,
           this.boardGamesForm?.value
         )
-      : this.boardGamesService.createBoardGame(this.boardGamesForm?.value);
     boardGameRequest.subscribe(() => {
       this.isBoardGameCreated = true;
       this.boardGamesForm?.reset();
-      this.router.navigate(['list']);
+      this.router.navigate(['myGames']);
     });
   }
 }

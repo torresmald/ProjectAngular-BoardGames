@@ -5,8 +5,7 @@ import { ReplaySubject, BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalService{
-  // TIP: showModal$
-  // TIP: public shouldShowModal2$: BehaviorSubject<boolean> =  new BehaviorSubject(false);
+ 
   public shouldShowModal$: ReplaySubject<boolean> =  new ReplaySubject<boolean>();
   public modalMessage$: ReplaySubject<string> = new ReplaySubject<string>();
   public result$: Subject<boolean> = new Subject<boolean>();

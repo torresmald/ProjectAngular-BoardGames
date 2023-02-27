@@ -34,11 +34,8 @@ export class RegisterComponent {
     });
   }
   public register() {
-    if(!this.userForm?.valid){return;}
     const userRequest = this.usersService.createUser(this.userForm?.value);
-    userRequest.subscribe(() => {
-      console.log(this.userForm?.value);
-      
+    userRequest.subscribe(() => {      
       this.isUserRegistered = true;
       this.userForm?.reset();
       this.router.navigate(['login']);
