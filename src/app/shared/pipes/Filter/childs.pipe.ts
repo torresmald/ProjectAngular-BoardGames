@@ -3,7 +3,7 @@ import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGame
 
 @Pipe({
   name: 'childs',
-  pure: true
+  pure: false
 
 })
 export class ChildsPipe implements PipeTransform {

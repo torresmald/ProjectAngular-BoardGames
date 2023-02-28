@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { DetailComponent } from './detail.component';
   imports: [
     CommonModule,
     DetailRoutingModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ]
 })
 export class DetailModule { }

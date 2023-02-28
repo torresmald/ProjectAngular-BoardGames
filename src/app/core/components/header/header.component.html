@@ -1,6 +1,10 @@
 <header class="header">
   <div class="header__box">
-    <img src="https://res.cloudinary.com/dpyvlsksj/image/upload/v1676237655/bgg_apsl5x.jpg" alt="Logo Bgg" class="header__box_logo">
+    <img
+      src="https://res.cloudinary.com/dpyvlsksj/image/upload/v1676237655/bgg_apsl5x.jpg"
+      alt="Logo Bgg"
+      class="header__box_logo"
+    />
     <p>Board Game List</p>
   </div>
   <nav>
@@ -11,7 +15,7 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/home' }"
           [routerLink]="['home']"
-          >Home</a
+          >{{ "HEADER.HOME" | translate }}</a
         >
       </li>
       <li>
@@ -20,7 +24,7 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/list' }"
           [routerLink]="['list']"
-          >Listado Juegos</a
+          >{{ "HEADER.LIST" | translate }}</a
         >
       </li>
       <li>
@@ -29,7 +33,7 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/myGames' }"
           [routerLink]="['myGames']"
-          >Mis Juegos</a
+          >{{ "HEADER.MYGAMES" | translate }}</a
         >
       </li>
       <li>
@@ -38,7 +42,7 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/contact' }"
           [routerLink]="['contact']"
-          >Contacto</a
+          >{{ "HEADER.CONTACT" | translate }}</a
         >
       </li>
       <li>
@@ -47,7 +51,7 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/register' }"
           [routerLink]="['register']"
-          >Registro</a
+          >{{ "HEADER.REGISTER" | translate }}</a
         >
       </li>
       <li>
@@ -57,7 +61,7 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/login' }"
           [routerLink]="['login']"
-          >Login</a
+          >{{ "HEADER.LOGIN" | translate }}</a
         >
       </li>
       <li>
@@ -67,9 +71,19 @@
           (click)="selectedRoute()"
           [ngClass]="{ header__active: currentRoute === '/account' }"
           [routerLink]="['account']"
-          >Account</a
+          >{{ "HEADER.ACCOUNT" | translate }}</a
         >
       </li>
+      <li>
+        <select #langSelect (change)="changeLang(langSelect.value)" class="select">
+          <option *ngFor="let lang of langs" [value]="lang">
+            {{lang=== "es" ? '🇪🇸Español ': '🇬🇧English'}}
+          </option>
+        </select>
+      </li>
     </ul>
+    
+      
+    
   </nav>
 </header>

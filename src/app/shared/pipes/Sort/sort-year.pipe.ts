@@ -3,7 +3,7 @@ import { BoardGames } from 'src/app/core/models/boardGames/transformed/boardGame
 
 @Pipe({
   name: 'sortYear',
-  pure: true
+  pure: false
 
 })
 export class SortYearPipe implements PipeTransform {

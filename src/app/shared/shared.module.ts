@@ -5,6 +5,7 @@ import { SortYearPipe } from './pipes/Sort/sort-year.pipe';
 import { ButtonComponent } from './components/button/button.component';
 import { CategoryPipe } from './pipes/Filter/category.pipe';
 import { ChildsPipe } from './pipes/Filter/childs.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -17,14 +18,16 @@ import { ChildsPipe } from './pipes/Filter/childs.pipe';
     ChildsPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   exports: [
     FilterPipe,
     SortYearPipe,
     ButtonComponent,
     CategoryPipe,
-    ChildsPipe
+    ChildsPipe,
+    
   ]
 })
 export class SharedModule { }

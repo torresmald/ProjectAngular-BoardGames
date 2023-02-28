@@ -6,6 +6,7 @@ import { GameListComponent } from './game-list.component';
 import { GameComponent } from './game/game.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     GameListRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class GameListModule { }

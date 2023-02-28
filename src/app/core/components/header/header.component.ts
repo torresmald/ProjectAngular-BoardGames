@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
-import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { UsersService } from '../../services/users/users.service';
 
 @Component({
@@ -9,14 +9,26 @@ import { UsersService } from '../../services/users/users.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  langs: string[] = [];
+
   public currentRoute?: string;
   public isLogged?: boolean = false;
-  // public isLogged$?: Observable<boolean>
-  constructor(private router: Router, private userService: UsersService) {}
-
+  constructor(
+    private router: Router,
+    private userService: UsersService,
+    public translate: TranslateService
+  ) {
+    translate.setDefaultLang('en');
+    translate.use('en'), this.translate.addLangs(['en', 'es']);
+    this.langs = this.translate.getLangs();
+  }
+  changeLang(lang: string) {
+    this.translate.use(lang)
+  }
   ngOnInit(): void {
-    // this.isLogged$ = this.authService.userLogged$
-      this.userService.userLogged$.subscribe((isLoggedUser) => this.isLogged = isLoggedUser)
+    this.userService.userLogged$.subscribe(
+      (isLoggedUser) => (this.isLogged = isLoggedUser)
+    );
   }
   public selectedRoute() {
     this.router.events.subscribe((event: Event) => {

@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to right, #f46b45, #eaba77);
-  height: 50px;
+  height: 60px;
   padding: 2em 2em 2em 1em;
   font-family: 'Dinosaur';
   color: $color-primary;
@@ -36,7 +36,12 @@
     color: $color-tertiary;
   }
 }
-
+.select{
+  font-family: 'Dinosaur';
+  color: $color-primary;
+  background-color: #eaba77;
+  border: 0px;
+}
 @media screen and (min-width: 762px) {
   .header__list{
     display: flex;

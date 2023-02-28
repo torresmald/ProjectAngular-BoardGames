@@ -1,5 +1,5 @@
 <div class="account">
-    <h5 class="account__welcome">BIENVENIDO!</h5>
+    <h5 class="account__welcome">{{ "ACCOUNT.WELCOME" | translate | uppercase}}!</h5>
     <div class="account__data">
         <img class="account__data_avatar" src={{userData?.picture}} alt="Avatar">
         <div class="account__data_info">
@@ -7,6 +7,6 @@
             <p>Email: {{userData?.email}}</p>
         </div>
     </div>
-    <button (click)="logout()" class="logout">Logout</button>
+    <button (click)="logout()" class="logout">{{ "ACCOUNT.LOGOUT" | translate | uppercase}}</button>
 </div>
 

@@ -4,81 +4,81 @@
   (submit)="register()"
 >
   <fieldset class="form">
-    <legend>Registro de Usuario</legend>
+    <legend>{{ "REGISTER.REGISTER" | translate | uppercase}}</legend>
     <div class="form__email">
-      <label for="email">Email</label>
+      <label for="email">{{ "REGISTER.EMAIL" | translate | uppercase}}</label>
       <input type="text" id="email" formControlName="email" />
       <p
         *ngIf="userForm.get('email')?.dirty
       && userForm.get('email')?.errors?.['required']
       "
       >
-        El email es requerido
+      {{ "REGISTER.ERRORS.EMAILREQUIRED" | translate | uppercase}}
       </p>
       <p
         *ngIf="userForm.get('email')?.dirty
       && userForm.get('email')?.errors?.['email']
       "
       >
-        El email no tiene un formato válido
+      {{ "REGISTER.ERRORS.EMAILFORMAT" | translate | uppercase}}
       </p>
     </div>
     <div class="form__password">
-      <label for="password">Password</label>
+      <label for="password">{{ "REGISTER.PASSWORD" | translate | uppercase}}</label>
       <input type="password" id="password" formControlName="password" />
       <p
         *ngIf="userForm.get('password')?.dirty
       && userForm.get('password')?.errors?.['required']
       "
       >
-        El password es requerido
+      {{ "REGISTER.ERRORS.PASSWORDREQUIRED" | translate | uppercase}}
       </p>
       <p
         *ngIf="userForm.get('password')?.dirty
       && userForm.get('password')?.errors?.['minlength']
       "
       >
-        La contraseña debe contener al menos 6 carácteres.
+      {{ "REGISTER.ERRORS.PASSWORDFORMAT" | translate | uppercase}}
       </p>
     </div>
     <div class="form__nickname">
-      <label for="nickname">Nickname</label>
+      <label for="nickname">{{ "REGISTER.NICKNAME" | translate | uppercase}}</label>
       <input type="text" id="nickname" formControlName="nickname" />
       <p
         *ngIf="userForm.get('nickname')?.dirty
       && userForm.get('nickname')?.errors?.['required']
       "
       >
-        El nickname es requerido
+      {{ "REGISTER.ERRORS.NICKNAMEREQUIRED" | translate | uppercase}}
       </p>
     </div>
     <div class="form__picture">
-      <label for="picture">Avatar</label>
+      <label for="picture">{{ "REGISTER.AVATAR" | translate | uppercase}}</label>
       <input type="text" id="picture" formControlName="picture" />
     </div>
     <div class="form__age">
-      <label for="age">Edad</label>
+      <label for="age">{{ "REGISTER.AGE" | translate | uppercase}}</label>
       <input type="text" id="age" formControlName="age" />
       <p
         *ngIf="userForm.get('age')?.dirty
       && userForm.get('age')?.errors?.['min']
       "
       >
-        La contraseña debe ser mayor de 10 años.
+      {{ "REGISTER.ERRORS.AGEFORMAT10" | translate | uppercase}}
       </p>
       <p
         *ngIf="userForm.get('age')?.dirty
       && userForm.get('age')?.errors?.['max']
       "
       >
-        La contraseña debe ser menor de 90 años.
+      {{ "REGISTER.ERRORS.AGEFORMAT90" | translate | uppercase}}
       </p>
       <p
         *ngIf="userForm.get('age')?.dirty
       && userForm.get('age')?.errors?.['required']
       "
       >
-        La edad es requerida
+      {{ "REGISTER.ERRORS.AGEREQUIRED" | translate | uppercase}}
       </p>
     </div>
     <games-button></games-button>

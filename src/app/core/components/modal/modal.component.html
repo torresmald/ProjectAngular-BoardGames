@@ -2,8 +2,8 @@
     <div class="modalContainer">
       <div class="bodyModal">{{modalMessage}}</div>
       <div class="footerModal">
-        <button (click)="confirm(true)">Continuar</button>
-        <button (click)="confirm(false)">Volver</button>
+        <button (click)="confirm(true)">{{"MODAL.EXIT" |translate |uppercase}}</button>
+        <button (click)="confirm(false)">{{"MODAL.CONTINUE" |translate | uppercase}}</button>
       </div>
     </div>
   </div>

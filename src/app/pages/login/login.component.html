@@ -1,27 +1,27 @@
 <form *ngIf="userForm" [formGroup]="userForm"(submit)="login()">
   <fieldset class="form">
-    <legend>Login de Usuario</legend>
+    <legend>{{ "LOGIN.LOGIN" | translate | uppercase}}</legend>
     <div class="form__email">
-      <label for="email">Email</label>
+      <label for="email">{{ "LOGIN.EMAIL" | translate | uppercase}}</label>
       <input type="text" id="email" formControlName="email" />
       <p
         *ngIf="userForm.get('email')?.dirty
           && userForm.get('email')?.errors?.['required']
           "
       >
-        El email es requerido
+      {{ "LOGIN.ERRORS.EMAILREQUIRED" | translate | uppercase}}
       </p>
       
     </div>
     <div class="form__password">
-      <label for="password">Password</label>
+      <label for="password">{{ "LOGIN.PASSWORD" | translate | uppercase}}</label>
       <input type="password" id="password" formControlName="password" />
       <p
         *ngIf="userForm.get('password')?.dirty
           && userForm.get('password')?.errors?.['required']
           "
       >
-        El password es requerido
+      {{ "LOGIN.ERRORS.PASSWORDREQUIRED" | translate | uppercase}}
       </p>
     </div>
     <p
