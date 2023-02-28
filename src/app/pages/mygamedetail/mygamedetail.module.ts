@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MygamedetailRoutingModule } from './mygamedetail-routing.module';
 import { MygamedetailComponent } from './mygamedetail.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MygamedetailComponent } from './mygamedetail.component';
   ],
   imports: [
     CommonModule,
-    MygamedetailRoutingModule
+    MygamedetailRoutingModule,
+    TranslateModule
   ]
 })
 export class MygamedetailModule { }

@@ -34,7 +34,7 @@ export class LoginComponent {
     userRequest.subscribe({
       next: () => {
         this.userForm?.reset();
-        this.router.navigate(['account']);
+        this.router.navigate(['']);
       },
       error: (error) => {
         this.errors = error.error;

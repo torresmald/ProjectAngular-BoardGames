@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormMyBoardGameRoutingModule } from './form-my-board-game-routing.module';
 import { FormMyBoardGameComponent } from './form-my-board-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormMyBoardGameRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class FormMyBoardGameModule { }

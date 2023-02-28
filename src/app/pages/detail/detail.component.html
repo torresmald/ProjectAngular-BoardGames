@@ -6,48 +6,48 @@
   <div class="gameWrapData">
     <div class="game__category">
       <div class="game__category_name">
-        <h4>Categoria:</h4>
+        <h4>{{ "GAME.CATEGORY" | translate | uppercase}}:</h4>
         <p>{{ boardGame?.category?.name }}</p>
       </div>
       <div class="game__category_desc">
-        <h4>Descripcion:</h4>
+        <h4>{{ "GAME.DESCRIPTION" | translate | uppercase}}:</h4>
         <p>{{ boardGame?.category?.description }}</p>
       </div>
     </div>
     <div class="game__designer">
       <ul class="game__designer_list">
-        <h4>Diseñadores:</h4>
+        <h4>{{ "GAME.DESIGNERS" | translate | uppercase}}:</h4>
         <div class="game__designer_item">
           <li *ngFor="let designer of boardGame?.designer">{{ designer }}</li>
         </div>
       </ul>
     </div>
     <div class="game__publisher">
-      <h4>Editorial:</h4>
+      <h4>{{ "GAME.PUBLISHER" | translate | uppercase}}:</h4>
       <p>{{ boardGame?.publisher }}</p>
     </div>
     <div class="game__year">
-      <h4>Año Lanzamiento:</h4>
+      <h4>{{ "GAME.LAUNCHYEAR" | translate | uppercase}}:</h4>
       <p>{{ boardGame?.year }}</p>
     </div>
     <div class="game__players">
-      <h4>Número Jugadores:</h4>
+      <h4>{{ "GAME.PLAYERS" | translate | uppercase}}:</h4>
       <p>{{ boardGame?.players }}</p>
     </div>
     <div class="game__time">
-      <h4>Duración partida:</h4>
+      <h4>{{ "GAME.TIME" | translate | uppercase}}:</h4>
       <p>{{ boardGame?.playingTime }}</p>
     </div>
     <div class="game__weight">
-      <h4>Dificultad:</h4>
+      <h4>{{ "GAME.WEIGHT" | translate | uppercase}}:</h4>
       <p>{{ boardGame?.weight }}</p>
     </div>
     <div class="game__childs">
-      <h4>Es para niños?:</h4>
+      <h4>{{ "GAME.CHILDS" | translate | uppercase}}:</h4>
       <p>{{ boardGame?.isForChilds === true ? "Si!!" : "¡NO!" }}</p>
     </div>
   </div>
 </div>
 <div class="gameButton">
-  <button (click)="backToList()" class="send">Volver al Listado</button>
+  <button (click)="backToList()" class="send">{{ "GAME.BACK" | translate | uppercase}}</button>
 </div>

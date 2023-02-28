@@ -4,101 +4,101 @@
   [formGroup]="boardGamesForm"
   class="form"
 >
-  <label for="title">Título</label>
+  <label for="title">{{"FORM.TITLE" | translate | uppercase}}</label>
   <input type="text" id="title" formControlName="title" />
   <p
     *ngIf="boardGamesForm.get('title')?.dirty
   && boardGamesForm.get('title')?.errors?.['required']
 "
   >
-    El título es requerido
+    {{"FORM.ERRORS.TITLEREQUIRED" | translate | uppercase}}
   </p>
-  <label for="publisher">Editorial</label>
+  <label for="publisher">{{"FORM.PUBLISHER" | translate | uppercase}}</label>
   <input type="text" id="publisher" formControlName="publisher" />
   <p
     *ngIf="boardGamesForm.get('publisher')?.dirty
   && boardGamesForm.get('publisher')?.errors?.['required']
 "
   >
-    La editorial es requerida
+   {{"FORM.ERRORS.PUBLISHERREQUIRED" | translate | uppercase}}
   </p>
-  <label for="designer">Diseñador</label>
+  <label for="designer">{{"FORM.DESIGNERS" | translate | uppercase}}</label>
   <input type="text" id="designer" formControlName="designer" />
   <p
     *ngIf="boardGamesForm.get('designer')?.dirty
   && boardGamesForm.get('designer')?.errors?.['required']
 "
   >
-    El diseñador es requerido
+    {{"FORM.ERRORS.DESIGNERREQUIRED" | translate | uppercase}}
   </p>
-  <label for="year">Año Lanzamiento</label>
+  <label for="year">{{"FORM.LAUNCHYEAR" | translate | uppercase}}</label>
   <input type="text" id="year" formControlName="year" />
   <p
     *ngIf="boardGamesForm.get('year')?.dirty
   && boardGamesForm.get('year')?.errors?.['required']
 "
   >
-    El año de lanzamiento es requerido
+    {{"FORM.ERRORS.LAUNCHYEARREQUIRED" | translate | uppercase}}
   </p>
   <p
     *ngIf="boardGamesForm.get('year')?.errors?.['min']
 "
   >
-    El año no puede ser inferior a 1895
+    {{"FORM.ERRORS.LAUNCH1895" | translate | uppercase}}
   </p>
   <p
     *ngIf="boardGamesForm.get('year')?.errors?.['max']
 "
   >
-    El año no puede ser superior a 2023
+    {{"FORM.ERRORS.LAUNCH2023" | translate | uppercase}}
   </p>
-  <label for="picture">Imagen</label>
+  <label for="picture">{{"FORM.IMAGE" | translate | uppercase}}</label>
   <input type="text" id="picture" formControlName="picture" />
-  <label for="category">Categoría</label>
+  <label for="category">{{"FORM.CATEGORY" | translate | uppercase}}</label>
   <select formControlName="category">
     <option default value="">Categoría</option>
     <option *ngFor="let category of categoriesEl" [value]="category">
       {{ category }}
     </option>
   </select>
-  <label for="players">Nº Jugadores</label>
+  <label for="players">{{"FORM.PLAYERS" | translate | uppercase}}</label>
   <select formControlName="players">
     <option default value="">Nº Jugadores</option>
     <option *ngFor="let player of numberPlayersEl" [value]="player">
       {{ player }}
     </option>
   </select>
-  <label for="weight">Dificultad</label>
+  <label for="weight">{{"FORM.WEIGHT" | translate | uppercase}}</label>
   <input type="text" id="weight" formControlName="weight" />
   <p
     *ngIf="boardGamesForm.get('weight')?.dirty
   && boardGamesForm.get('weight')?.errors?.['required']
 "
   >
-    La dificultad es requerida
+    {{"FORM.ERRORS.WEIGHTREQUIRED" | translate | uppercase}}
   </p>
   <p
     *ngIf="boardGamesForm.get('weight')?.errors?.['min']
 "
   >
-    La dificultad no puede ser inferior a 1
+    {{"FORM.ERRORS.WEIGHT1" | translate | uppercase}}
   </p>
   <p
     *ngIf="boardGamesForm.get('weight')?.errors?.['max']
 "
   >
-  La dificultad no puede ser superior a 5
+  {{"FORM.ERRORS.WEIGHT5" | translate | uppercase}}
 </p>
-  <label for="playingTime">Duración Partida</label>
+  <label for="playingTime">{{"FORM.PLAYING" | translate | uppercase}}</label>
   <select formControlName="playingTime">
     <option default value="">Duración de Partida</option>
     <option *ngFor="let time of playingTimeEl" [value]="time">
       {{ time }}
     </option>
   </select>
-  <label for="isForAdults">¿Es para niños?</label>
+  <label for="isForAdults">{{"FORM.CHILDS" | translate | uppercase}}</label>
   <input type="checkbox" id="isForAdults" formControlName="isForChilds" />
   <button type="submit" class="send">
-    {{ canEdit ? "Editar producto" : "Crear producto" }}
+  {{canEdit ? 'EDIT' : 'ADD'}} 
   </button>
 </form>

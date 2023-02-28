@@ -6,38 +6,42 @@
     class="filters__title"
   />
   <div class="filters__category">
-    <label for="category">Filtra por Categoría</label>
+    <label for="category">{{ "LIST.CATEGORY" | translate | uppercase}}</label>
     <select name="categories" id="category" [(ngModel)]="boardGameCategory">
-      <option default value="">Categoría</option>
+      <option default value="">{{ "LIST.CATEGORYDEFAULT" | translate | uppercase}}</option>
       <option *ngFor="let category of filterCategories" [value]="category">
         {{ category }}
       </option>
     </select>
   </div>
-  <fieldset class="filters__sort">
-    <legend>Ordena por año</legend>
-    <div>
-      <input type="radio" id="asc" [(ngModel)]="sortByYear" value="asc" />
-      <label for="asc">Ascendente</label>
-    </div>
-    <div>
-      <input type="radio" id="desc" [(ngModel)]="sortByYear" value="desc" />
-      <label for="desc">Descendente</label>
-    </div>
-  </fieldset>
-  <fieldset class="filters__age">
-    <legend>Juegos por Edad</legend>
-    <div>
-      <input type="radio" id="false" [(ngModel)]="isForChilds" value='false' />
-      <label for="false">Adultos</label>
-    </div>
-    <div>
-      <input type="radio" id="true" [(ngModel)]="isForChilds" value="true" />
-      <label for="true">Niños</label>
-    </div>
-  </fieldset>
+  <form>
+    <fieldset class="filters__sort">
+      <legend>{{ "LIST.YEAR" | translate | uppercase}}</legend>
+      <div>
+        <input name="year" type="radio" id="asc" [(ngModel)]="sortByYear" value="asc" />
+        <label for="asc">{{ "LIST.YEARASC" | translate | uppercase}}</label>
+      </div>
+      <div>
+        <input  name="year" type="radio" id="desc" [(ngModel)]="sortByYear" value="desc" />
+        <label for="desc">{{ "LIST.YEARDESC" | translate | uppercase}}</label>
+      </div>
+    </fieldset>
+  </form>
+  <form>
+    <fieldset class="filters__age">
+      <legend>{{ "LIST.AGE" | translate | uppercase}}</legend>
+      <div>
+        <input name="age" type="radio" id="false" [(ngModel)]="isForChilds" value='false' />
+        <label for="false">{{ "LIST.AGEADULTS" | translate | uppercase}}</label>
+      </div>
+      <div>
+        <input name="age" type="radio" id="true" [(ngModel)]="isForChilds" value="true" />
+        <label for="true">{{ "LIST.AGECHILDS" | translate | uppercase}}</label>
+      </div>
+    </fieldset>
+  </form>
   <button (click)="navigateToFormGames()" class="filters__addGame">
-    Añadir Juego
+    {{ "LIST.ADDGAME" | translate | uppercase}}
   </button>
 </div>
 <div class="games">
@@ -57,8 +61,8 @@
 <div class="buttons">
   <button 
   [ngClass]="previousPage === null ? 'none' : 'buttons__previousPage'"
-  (click)="getPreviousPage()">Pagina Anterior</button>
+  (click)="getPreviousPage()">{{ "LIST.PREVIOUSPAGE" | translate | uppercase}}</button>
   <button 
   [ngClass]="nextPage === null ? 'none' : 'buttons__nextPage'"
-  (click)="getNextPage()">Pagina Siguiente</button>
+  (click)="getNextPage()">{{ "LIST.NEXTPAGE" | translate | uppercase}}</button>
 </div>

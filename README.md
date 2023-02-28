@@ -16,98 +16,50 @@ Proyecto realizado con  [Angular CLI](https://github.com/angular/angular-cli) ve
 
 
 ## INSTALACION
+
 1. DESCARGA DEL REPOSITORIO
 ```
-git clone https://github.com/torresmald/ProjectAngular-BoardGames
+git clone https://github.com/torresmald/proyect-react-web.git
+```
+2. INSTALACION DE DEPENDENCIAS UTLIZADAS.
+```
+npm install
+```
+3. LANZAMIENTO DE LA APLICACION.
+```
+ng serve -open
+Abrir el navegador en: http://localhost:4200
 ```
 
-2. INSTALACION DE DEPENDENCIAS UTLIZADAS. 
+## ESTRUCTURA
 
-  ```
-  npm install
-  ```
-
-
-### DEPENDENCIAS UTILIZADAS
-
-- BCRYPT--> Para la encriptación/desencriptacion de las password de Users.
-- CLOUDINARY--> Host de imágenes utilizado para subir las imagenes de cines/películas desde el servidor.
-- CONNECT-MONGO--> Necesario para poder guardar en la BBDD las sesiones de los usuarios.
-- CORS--> Evitamos problemas de origen cruzado al utilizar Postman para lanzar las peticiones.
-- DOTENV--> Dependencia que nos permite utilizar las variables de entorno y securizar la aplicación.
-- EXPRESS--> Framework utilizado como entorno de desarrollo.
-- EXPRESS SESION--> Permite la gestión de sesiones de usuario.
-- MONGOOSE--> Para la conexión con la BBDD de MongoDB.
-- MULTER--> Nos permite la subida de archivos por parte del usuario al servidor.
-- PASSPORT--> Librería de autenticación utilizada.
-- PASSPORT-LOCAL--> Nos permite crear una estrategia de autenticacion para registro/login.
-
-#### DEPENDENCIAS DE DESARROLLO:
-
-- NODEMON--> Utilizada durante el desarrollo de la aplicación para comprobar chequear los cambios en el código y recargar el Servidor.
-
-## OBJETIVOS DEL PROYECTO
-
-- Se han creado 2 colecciones (users, games)
-
-1- Dentro de la carpeta `**models**` se pueden encontrar los "Schemas" con los atributos que quiero guardar en mi base de datos, de cada una de las colecciones; además de indicar, qué atributos son requeridos, únicos, etc.
-En cada una de las colecciones además se ha creado el modelo, que sigue el Schema y que es el que se utiliza cada vez que se añade un elemento (ya que es el que está exportado).
-
-2- Dentro de la carpeta `**public**` donde se subirán los archivos estáticos del proyecto, para su posterior borrado automático.
-
-3- Dentro de la carpeta `**routes**`, se encuentran la distintas colecciones con sus endpoints, aquí es dónde se realiza el CRUD (Create/Post, Read/Get/ Update/Put, Delete/Delete):
-`**Users**`  --> realizada para el registro, login y logout del usuario
-
-`**Games**` --> se han creado varios endpoints:
+1. CORE --> NUCLEO DE LA APP CON ELEMENTOS USADOS EN TODA LA APLICACION.
+    -  COMPONENTES HEADER, FOOTER, LOADING, MODAL.
+    -  GUARDIAS
+    - INTERCEPTOR LOGIN
+    - MODELOS TIPADOS JUEGOS, CATEGORIAS Y USUARIOS
+    - SERVICIOS DE JUEGOS, CATEGORIAS, LOADING, MODAL Y USUARIOS. 
+2. PAGES --> PAGINAS DE VISTA DE CADA ELEMENTO
+    MI CUENTA, LOGIN, REGISTER, LISTADO JUEGOS, HOME, 
+3. SHARED --> ELEMENTOS REUSABLES EN VARIOS COMPONENTES
+    BOTONES, PIPES
 
 
-## ENDPOINTS DISPONIBLES:
-##### ALGUNOS ENDPOINTS GET TIENEN CAMPOS FILTRADOS QUE NO SE MOSTRARÁN EN LA PETICIÓN
+## UTILIZACION
 
-###### <sub>IMAGENES EN FORMATO ÚNICAMENTE PNG, JPG, JPEG, GIF</sub>
-###### <sub>Las cookies tienen un tiempo de expiracion de 2 horas.</sub>
+1. PERMITE REGISTRO DE USUARIOS CON CAMPOS EMAIL, NICKNAME, PASSWORD  EDAD y AVATAR.  
+2. LOGIN NECESARIO PARA PODER CREAR, EDITAR Y BORRAR JUEGOS.
+3. USOS DE FILTROS POR TITULO/EDAD/AÑO/GENERO PARA LOS JUEGOS DE MESA.
+4. LOS JUEGOS CREADOS A PARTIR DEL FORMULARIO IRÁN AL APARTADO DE MIS JUEGOS. 
+5. WEB TRADUCIDA INGLÉS/ESPAÑOL.
 
-1.  GAMES
-    ```jsx
-    1. GET
-    - gamesRouter.get('/' --> OBTENER LISTADO DE TODS LOS GAMES
-    - gamesRouter.get('/paged' --> LISTADO DE GAMES PAGINADOS EN BLOQUES DE 3 GAMES. 
-    - gamesRouter.get('/title/:title' --> GAMES POR TITULO INDICADO.
-    2. POST
-    - gamesRouter.post('/to-cloud' --> AÑADIR UN GAME. POSIBILIDAD DE AÑADIR UNA IMAGEN.
-    3. PUT
-    - gamesRouter.put('/:id' --> EDITAR UN GAME POR SU ID. 
-    4. DELETE
-    - gamesRouter.delete('/:id' --> ELIMINAR UN GAME POR SU ID
-    ```
-
-2.  USUARIOS
-    ```jsx
-    1. GET
-    - userRouter.get('/' --> OBTENER LISTADO DE TODOS LOS USUARIOS ORDENADOS POR EDAD.
-    2. POST
-    - userRouter.post('/register' --> POSIBILIDAD DE REGISTRARSE. SE REQUIERE UN EMAIL, PASSWORD, EDAD
-    - userRouter.post('/login' --> POSIBILIDAD DE LOGUEARSE UNA VEZ REGISTRADO. 
-    - userRouter.post('/logout' --> POSIBILIDAD DE DESLOGUEARSE. 
-
-
-4- Carpeta `**tmp**`--> creada para el despliege de la API con Vercel
-
-5- Dentro de la carpeta `**utils**`, tenemos:
-- authentication --> con passport para la gestión de usuarios.
-- db --> con el archivo connect.js - es el encargado de conectar la base de datos a mongoose/MongoDB.
-- errors --> creado el archivo create-error.js para unificar todo el control de errores por un mismo sitio.
-- middlewares --> creados los middlewares de athentication, cloudinary y multer (éste último, lo que hace es preparar el archivo pra poder subirlo).
-- seeds --> en la cual se encuentra, tanto el archivo .json de los games (dentro de db) como la seed de games - archivo que inicializa la base de datos.
-
-6- `**vercel.json**` --> archivo con la configuración necesaria para el depliege de la Api.
 
 ## RECURSOS
 
 - https://www.mongodb.com/atlas/database
-- https://vercel.com/
+- https://firebase.google.com/
 - https://cloudinary.com/
-- https://www.postman.com/
+
 
 
 ## CONTACTO
@@ -120,35 +72,3 @@ En cada una de las colecciones además se ha creado el modelo, que sigue el Sche
 DIVIERTETE USANDOLA......!!
 
 ![Image Movies](https://media3.giphy.com/media/R6ZNan8ZHchva/giphy.gif)
-
-
-
-
-<!-- 
-# BoardGames
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page. -->

@@ -51,7 +51,6 @@ export class BoardGamesService {
       tap(() =>  this.loadingService.hideLoading())
       )
   }
-
   public getBoardGameDetail(id: string): Observable<BoardGames> {
     this.loadingService.showLoading();
     return forkJoin([
@@ -90,7 +89,6 @@ export class BoardGamesService {
       .deleteApiMyBoardGame(id)
       .pipe(map((boardGame) => transformDataGames(boardGame)));
   }
-
   public editBoardGame(id: string, body: BoardGames): Observable<BoardGames> {
     this.modalService.showModal('EDITADO CON ÉXITO!')
     return this.apiBoardGamesService

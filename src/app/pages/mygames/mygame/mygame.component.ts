@@ -15,6 +15,8 @@ export class MygameComponent {
   constructor(private router: Router) {}
 
   public navigateToDetail() {
+    console.log(this.boardGame?.picture);
+    
     if (this.boardGame) {
       this.router.navigate(['myGames/detail', this.boardGame.id]);
     }

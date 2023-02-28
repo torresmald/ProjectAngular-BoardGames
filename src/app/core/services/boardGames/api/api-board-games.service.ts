@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiBoardGames, ApiPagedBoardGames } from '../../../models/boardGames/api/api-boardGames.model';
 import { BoardGames } from '../../../models/boardGames/transformed/boardGames.model';
-
+import { environment } from 'src/app/environments/environment.prod';
 
 const API_URLS = {
-  DOMAIN: 'https://api-board-games.vercel.app/',
+  DOMAIN: environment.host,
   GAMES: 'games/',
   PAGED_GAMES: 'games/paged',
   MYGAMES: 'mygames/'
@@ -18,7 +18,8 @@ const API_URLS = {
 export class ApiBoardGamesService {
   private GAMES_URL = `${API_URLS.DOMAIN}${API_URLS.GAMES}`;
   private PAGED_GAMES_URL = `${API_URLS.DOMAIN}${API_URLS.PAGED_GAMES}`;
-  private MYBOARDGAMES_URL= `${API_URLS.DOMAIN}${API_URLS.MYGAMES}`
+  private MYBOARDGAMES_URL= `${API_URLS.DOMAIN}${API_URLS.MYGAMES}`;
+  
   constructor(private request: HttpClient) {}
 
   public getApiBoardGames(): Observable<ApiBoardGames[]> {

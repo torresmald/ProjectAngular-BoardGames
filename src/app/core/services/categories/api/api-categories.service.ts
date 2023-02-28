@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiCategories } from 'src/app/core/models/categories/api/api-categories.model';
+import { environment } from 'src/app/environments/environment.prod';
 
 const categories = 'categories'
-const BASE_URL = `https://api-board-games.vercel.app/${categories}`
+const BASE_URL = `${environment.host}${categories}`
 
 @Injectable({
   providedIn: 'root'

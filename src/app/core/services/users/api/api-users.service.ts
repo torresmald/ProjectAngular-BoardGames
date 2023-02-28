@@ -1,13 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiUsers } from 'src/app/core/models/users/api/api-users.model';
 import { Users } from 'src/app/core/models/users/transformed/users.model';
-
+import { environment } from 'src/app/environments/environment.prod';
 const users = 'users';
 const register = 'register';
 const login = 'login';
-const API_USERS_URL = `https://api-board-games.vercel.app/`;
+const API_USERS_URL = environment.host;
 
 @Injectable({
   providedIn: 'root'
